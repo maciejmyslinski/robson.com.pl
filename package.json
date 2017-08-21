@@ -16,6 +16,7 @@
     "test": "echo \"Error: no test specified\""
   },
   "devDependencies": {
+    "firebase-tools": "^3.9.2",
     "prettier": "^1.5.2"
   }
 }
