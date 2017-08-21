@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
+import styled from 'styled-components';
 import config from '../../config.yml';
 
 import './index.css';
 
+const HeaderWrapper = styled.div`
+  background ${config.naglowek_tlo}
+`;
+
 const Header = () =>
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem'
-    }}
-  >
+  <HeaderWrapper>
     <div
       style={{
         margin: '0 auto',
@@ -32,7 +32,7 @@ const Header = () =>
         </Link>
       </h1>
     </div>
-  </div>;
+  </HeaderWrapper>;
 
 const TemplateWrapper = ({ children }) =>
   <div>
