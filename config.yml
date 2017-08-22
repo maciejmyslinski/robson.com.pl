@@ -4,4 +4,4 @@ kolor_pomocniczy: &KOLOR_POMOCNICZY '#355E85'
 
 # ustawienia
 home_page_text: Hello from Robson
-naglowek_tlo: *KOLOR_GLOWNY
+naglowek_tlo: *KOLOR_POMOCNICZY
