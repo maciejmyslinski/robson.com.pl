@@ -14,14 +14,31 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\"",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build-storybook": "build-storybook -c .storybook -o public"
   },
+  "babel": {
+    "presets": ["env", "react"]
+  },
   "devDependencies": {
     "@storybook/react": "^3.2.8",
+    "babel-jest": "^21.0.2",
+    "enzyme": "^2.9.1",
+    "enzyme-to-json": "^1.6.0",
     "firebase-tools": "^3.9.2",
     "gatsby-plugin-styled-components": "^1.0.3",
-    "prettier": "^1.5.2"
+    "jest": "^21.1.0",
+    "prettier": "^1.5.2",
+    "react-addons-test-utils": "^15.6.0",
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1"
+  },
+  "jest": {
+    "setupFiles": ["./test/jestsetup.js"],
+    "transform": { ".*": "<rootDir>/node_modules/babel-jest" },
+    "snapshotSerializers": ["<rootDir>/node_modules/enzyme-to-json/serializer"]
   }
 }

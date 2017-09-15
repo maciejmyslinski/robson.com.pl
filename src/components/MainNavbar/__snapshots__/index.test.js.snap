@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainNavbar should render 1`] = `
+<div>
+  <a
+    href="/serwis"
+  >
+    Serwis
+  </a>
+  <a
+    href="/sprezyny"
+  >
+    Sprężyny
+  </a>
+  <a
+    href="/cenniki"
+  >
+    Cenniki
+  </a>
+  <a
+    href="/kontakt"
+  >
+    Kontakt
+  </a>
+</div>
+`;
