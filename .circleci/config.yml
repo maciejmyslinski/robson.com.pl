@@ -153,6 +153,10 @@ workflows:
           requires: 
             - build
 
+          filters:
+            branches:
+              only: 6-deploy-storybook
+
       - deploy_production:
           requires:
             - build
