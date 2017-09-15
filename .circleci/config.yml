@@ -99,6 +99,41 @@ jobs:
           command: |
             node_modules/.bin/firebase deploy --project ${PRODUCTION_PROJECT_ID} --token ${FIREBASE_TOKEN}
 
+  deploy_storybook:
+    docker:
+      - image: circleci/node:7.10
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run:
+          name: Installing project dependencies
+          command: yarn install
+
+      - run:
+          name: Generating a production build
+          command: yarn build-storybook
+
+      - save_cache:
+          paths:
+            - node_modules
+            - functions/node_modules
+
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - deploy:
+          command: |
+            node_modules/.bin/firebase deploy --project ${STORYBOOK_PROJECT_ID} --token ${FIREBASE_TOKEN}
+
 workflows:
   version: 2
 
@@ -107,6 +142,14 @@ workflows:
       - build
 
       - deploy_staging:
+          requires: 
+            - build
+
+          filters:
+            branches:
+              only: master
+
+      - deploy_storybook:
           requires: 
             - build
 
