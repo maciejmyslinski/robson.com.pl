@@ -155,7 +155,7 @@ workflows:
 
           filters:
             branches:
-              only: 6-deploy-storybook
+              only: master
 
       - deploy_production:
           requires:
