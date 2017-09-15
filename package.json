@@ -13,9 +13,11 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
-    "test": "echo \"Error: no test specified\""
+    "test": "echo \"Error: no test specified\"",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "devDependencies": {
+    "@storybook/react": "^3.2.8",
     "firebase-tools": "^3.9.2",
     "gatsby-plugin-styled-components": "^1.0.3",
     "prettier": "^1.5.2"
