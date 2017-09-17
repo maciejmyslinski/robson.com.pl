@@ -21,7 +21,10 @@
     "build-storybook": "build-storybook -c .storybook -o public"
   },
   "babel": {
-    "presets": ["env", "react"]
+    "presets": [
+      "env",
+      "react"
+    ]
   },
   "devDependencies": {
     "@storybook/react": "^3.2.8",
@@ -37,8 +40,14 @@
     "react-test-renderer": "^15.6.1"
   },
   "jest": {
-    "setupFiles": ["./test/jestsetup.js"],
-    "transform": { ".*": "<rootDir>/node_modules/babel-jest" },
-    "snapshotSerializers": ["<rootDir>/node_modules/enzyme-to-json/serializer"]
+    "setupFiles": [
+      "./test/jestsetup.js"
+    ],
+    "transform": {
+      ".*": "<rootDir>/node_modules/babel-jest"
+    },
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ]
   }
 }

@@ -1,17 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
+import styled from 'styled-components';
+import Link from 'gatsby-link';
+import { Link as SimpleLink } from 'react-router-dom';
+
+const Wrapper = styled.div`background-color: #424242;`;
 
 const MainNavbar = props => {
-  const { elements = [] } = props;
+  const { elements, env } = props;
+  let LinkElement = env === 'gatsby' ? Link : SimpleLink;
+  const Element = styled(LinkElement)`
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0 8px;
+  `;
   return (
-    <div>
+    <Wrapper>
       {elements.map(element =>
-        <a key={uuid()} href={element.path}>
+        <Element key={uuid()} to={element.path}>
           {element.name}
-        </a>
+        </Element>
       )}
-    </div>
+    </Wrapper>
   );
 };
 
@@ -21,7 +33,8 @@ MainNavbar.propTypes = {
       name: PropTypes.string,
       path: PropTypes.string
     })
-  ).isRequired
+  ).isRequired,
+  env: PropTypes.oneOf(['gatsby', 'test'])
 };
 
 MainNavbar.defaultProps = {
@@ -42,7 +55,8 @@ MainNavbar.defaultProps = {
       name: 'Kontakt',
       path: '/kontakt'
     }
-  ]
+  ],
+  env: 'gatsby'
 };
 
 export default MainNavbar;
