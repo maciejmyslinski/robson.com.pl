@@ -9,7 +9,7 @@ const Wrapper = styled.div`background-color: #424242;`;
 
 const MainNavbar = props => {
   const { elements, env } = props;
-  let LinkElement = env === 'gatsby' ? Link : SimpleLink;
+  const LinkElement = env === 'gatsby' ? Link : SimpleLink;
   const Element = styled(LinkElement)`
     color: #fff;
     text-decoration: none;
@@ -21,7 +21,7 @@ const MainNavbar = props => {
       {elements.map(element =>
         <Element key={uuid()} to={element.path}>
           {element.name}
-        </Element>
+        </Element>,
       )}
     </Wrapper>
   );
@@ -31,32 +31,32 @@ MainNavbar.propTypes = {
   elements: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      path: PropTypes.string
-    })
+      path: PropTypes.string,
+    }),
   ).isRequired,
-  env: PropTypes.oneOf(['gatsby', 'test'])
+  env: PropTypes.oneOf(['gatsby', 'test']),
 };
 
 MainNavbar.defaultProps = {
   elements: [
     {
       name: 'Serwis',
-      path: '/serwis'
+      path: '/serwis',
     },
     {
       name: 'Sprężyny',
-      path: '/sprezyny'
+      path: '/sprezyny',
     },
     {
       name: 'Cenniki',
-      path: '/cenniki'
+      path: '/cenniki',
     },
     {
       name: 'Kontakt',
-      path: '/kontakt'
-    }
+      path: '/kontakt',
+    },
   ],
-  env: 'gatsby'
+  env: 'gatsby',
 };
 
 export default MainNavbar;

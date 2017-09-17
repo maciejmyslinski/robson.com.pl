@@ -1,14 +1,13 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { MemoryRouter } from 'react-router';
-import { storybookDefaults } from '../../hocs/storybook.js';
+import { storybookDefaults } from '../../hocs/storybook';
 import MainNavbar from './';
 
-storiesOf('MainNavbar', module).add('default', () => {
-  return storybookDefaults(
+storiesOf('MainNavbar', module).add('default', () =>
+  storybookDefaults(
     <MemoryRouter>
       <MainNavbar env="test" />
-    </MemoryRouter>
-  );
-});
+    </MemoryRouter>,
+  ),
+);

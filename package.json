@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Maciej Myśliński <hello@maciejmyslinski.com>",
   "dependencies": {
+    "@storybook/react": "^3.2.8",
     "gatsby": "^1.8.12",
     "gatsby-link": "^1.6.8",
     "gatsby-plugin-react-helmet": "^1.0.3",
@@ -20,13 +21,15 @@
     "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build-storybook": "build-storybook -c .storybook -o public",
-    "prettier": "prettier-eslint 'src/**/*.js' --write --list-different"
+    "prettier": "prettier-eslint --list-different \"src/**/*.js\""
   },
   "babel": {
-    "presets": ["env", "react"]
+    "presets": [
+      "env",
+      "react"
+    ]
   },
   "devDependencies": {
-    "@storybook/react": "^3.2.8",
     "babel-jest": "^21.0.2",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.6.0",
@@ -34,6 +37,7 @@
     "eslint-config-airbnb": "^15.1.0",
     "eslint-config-prettier": "^2.5.0",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.1.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
     "firebase-tools": "^3.9.2",
@@ -47,13 +51,20 @@
     "react-test-renderer": "^15.6.1"
   },
   "jest": {
-    "setupFiles": ["./test/jestsetup.js"],
+    "setupFiles": [
+      "./test/jestsetup.js"
+    ],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
-    "snapshotSerializers": ["<rootDir>/node_modules/enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ]
   },
   "lint-staged": {
-    "src/**/*.js": ["prettier-eslint --write --list-different", "git add"]
+    "src/**/*.js": [
+      "prettier-eslint --write --list-different",
+      "git add"
+    ]
   }
 }
