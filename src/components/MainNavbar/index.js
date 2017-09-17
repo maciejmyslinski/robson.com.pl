@@ -4,6 +4,19 @@ import uuid from 'uuid/v4';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 import { Link as SimpleLink } from 'react-router-dom';
+import Typography from 'typography';
+
+const typography = new Typography({
+  bodyFontFamily: ['Roboto', 'sans-serif'],
+  googleFonts: [
+    {
+      name: 'Roboto',
+      styles: '500'
+    }
+  ]
+});
+
+typography.injectStyles();
 
 const Wrapper = styled.div`background-color: #424242;`;
 
