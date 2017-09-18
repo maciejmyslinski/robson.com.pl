@@ -8,6 +8,8 @@
     "gatsby": "^1.8.12",
     "gatsby-link": "^1.6.8",
     "gatsby-plugin-react-helmet": "^1.0.3",
+    "polished": "^1.7.0",
+    "react-typography": "^0.16.5",
     "typography": "^0.16.6",
     "uuid": "^3.1.0"
   },
@@ -21,13 +23,11 @@
     "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build-storybook": "build-storybook -c .storybook -o public",
-    "prettier": "prettier-eslint --list-different \"src/**/*.js\""
+    "prettier": "prettier-eslint --list-different \"src/**/*.js\"",
+    "eslint": "eslint \"src/**/*.js\""
   },
   "babel": {
-    "presets": [
-      "env",
-      "react"
-    ]
+    "presets": ["env", "react"]
   },
   "devDependencies": {
     "babel-jest": "^21.0.2",
@@ -51,20 +51,13 @@
     "react-test-renderer": "^15.6.1"
   },
   "jest": {
-    "setupFiles": [
-      "./test/jestsetup.js"
-    ],
+    "setupFiles": ["./test/jestsetup.js"],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
-    "snapshotSerializers": [
-      "<rootDir>/node_modules/enzyme-to-json/serializer"
-    ]
+    "snapshotSerializers": ["<rootDir>/node_modules/enzyme-to-json/serializer"]
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "prettier-eslint --write --list-different",
-      "git add"
-    ]
+    "src/**/*.js": ["prettier-eslint --write --list-different", "git add"]
   }
 }

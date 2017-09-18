@@ -4,17 +4,42 @@ import uuid from 'uuid/v4';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 import { Link as SimpleLink } from 'react-router-dom';
+import { transparentize } from 'polished';
+import typography from '../../utils/typography';
 
-const Wrapper = styled.div`background-color: #424242;`;
+const { rhythm } = typography;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: #424242;
+  height: ${rhythm(2)};
+  justify-content: space-around;
+  overflow: hidden;
+`;
 
 const MainNavbar = props => {
   const { elements, env } = props;
   const LinkElement = env === 'gatsby' ? Link : SimpleLink;
   const Element = styled(LinkElement)`
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #fff;
+    background: transparent;
     text-decoration: none;
     text-transform: uppercase;
-    padding: 0 8px;
+    transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
+
+    &:hover, &:focus {
+      color: #FBB451;
+      background: ${transparentize(0.95, '#fff')};
+    }
+    
+    &:active {
+      background: ${transparentize(0.95, '#000')};
+    }
   `;
   return (
     <Wrapper>
