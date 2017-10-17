@@ -4,7 +4,6 @@ import uuid from 'uuid/v4';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 import { Link as SimpleLink } from 'react-router-dom';
-import { transparentize } from 'polished';
 import typography from '../../utils/typography';
 
 const { rhythm } = typography;
@@ -21,7 +20,7 @@ const Wrapper = styled.div`
 const MainNavbar = props => {
   const { elements, env } = props;
   const LinkElement = env === 'gatsby' ? Link : SimpleLink;
-  const Element = styled(LinkElement)`
+  const Element = styled(LinkElement) `
     flex: 1;
     display: flex;
     justify-content: center;
@@ -32,13 +31,8 @@ const MainNavbar = props => {
     text-transform: uppercase;
     transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
 
-    &:hover, &:focus {
+    &:hover, &:focus, &:active {
       color: #FBB451;
-      background: ${transparentize(0.95, '#fff')};
-    }
-    
-    &:active {
-      background: ${transparentize(0.95, '#000')};
     }
   `;
   return (
