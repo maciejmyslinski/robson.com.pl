@@ -8,6 +8,8 @@
     "gatsby": "^1.8.12",
     "gatsby-link": "^1.6.8",
     "gatsby-plugin-react-helmet": "^1.0.3",
+    "gatsby-plugin-typography": "^1.7.10",
+    "gatsby-source-filesystem": "^1.5.5",
     "polished": "^1.7.0",
     "react-typography": "^0.16.5",
     "typography": "^0.16.6",
@@ -27,7 +29,10 @@
     "eslint": "eslint \"src/**/*.js\""
   },
   "babel": {
-    "presets": ["env", "react"]
+    "presets": [
+      "env",
+      "react"
+    ]
   },
   "devDependencies": {
     "babel-jest": "^21.0.2",
@@ -51,13 +56,20 @@
     "react-test-renderer": "^15.6.1"
   },
   "jest": {
-    "setupFiles": ["./test/jestsetup.js"],
+    "setupFiles": [
+      "./test/jestsetup.js"
+    ],
     "transform": {
       ".*": "<rootDir>/node_modules/babel-jest"
     },
-    "snapshotSerializers": ["<rootDir>/node_modules/enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ]
   },
   "lint-staged": {
-    "src/**/*.js": ["prettier-eslint --write --list-different", "git add"]
+    "src/**/*.js": [
+      "prettier-eslint --write --list-different",
+      "git add"
+    ]
   }
 }

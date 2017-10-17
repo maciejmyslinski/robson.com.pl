@@ -8,7 +8,7 @@ export default new Typography({
   googleFonts: [
     {
       name: 'Roboto',
-      styles: '500',
+      styles: ['400', '500'],
     },
   ],
   headerFontFamily: ['Roboto', 'sans-serif'],
