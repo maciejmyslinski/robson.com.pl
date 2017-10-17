@@ -2,25 +2,29 @@
 
 exports[`MainNavbar should render 1`] = `
 <styled.div>
-  <Styled(GatsbyLink)
-    to="/serwis"
-  >
-    Serwis
-  </Styled(GatsbyLink)>
-  <Styled(GatsbyLink)
-    to="/sprezyny"
-  >
-    Sprężyny
-  </Styled(GatsbyLink)>
-  <Styled(GatsbyLink)
-    to="/cenniki"
-  >
-    Cenniki
-  </Styled(GatsbyLink)>
-  <Styled(GatsbyLink)
-    to="/kontakt"
-  >
-    Kontakt
-  </Styled(GatsbyLink)>
+  <styled.div>
+    <styled.div>
+      <Styled(GatsbyLink)
+        to="/serwis"
+      >
+        Serwis
+      </Styled(GatsbyLink)>
+      <Styled(GatsbyLink)
+        to="/sprezyny"
+      >
+        Sprężyny
+      </Styled(GatsbyLink)>
+      <Styled(GatsbyLink)
+        to="/cenniki"
+      >
+        Cenniki
+      </Styled(GatsbyLink)>
+      <Styled(GatsbyLink)
+        to="/kontakt"
+      >
+        Kontakt
+      </Styled(GatsbyLink)>
+    </styled.div>
+  </styled.div>
 </styled.div>
 `;

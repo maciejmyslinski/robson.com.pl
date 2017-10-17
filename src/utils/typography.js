@@ -8,12 +8,12 @@ export default new Typography({
   googleFonts: [
     {
       name: 'Roboto',
-      styles: '500'
-    }
+      styles: '500',
+    },
   ],
   headerFontFamily: ['Roboto', 'sans-serif'],
   bodyFontFamily: ['Roboto', 'sans-serif'],
   headerColor: 'hsla(0, 0%, 15%, 0.87)',
   bodyColor: 'hsla(0, 0%, 15%, 0.87)',
-  includeNormalize: true
+  includeNormalize: true,
 });
