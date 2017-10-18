@@ -8,6 +8,7 @@
     "gatsby": "^1.8.12",
     "gatsby-link": "^1.6.8",
     "gatsby-plugin-react-helmet": "^1.0.3",
+    "gatsby-plugin-styled-components": "^1.0.3",
     "gatsby-plugin-typography": "^1.7.10",
     "gatsby-source-filesystem": "^1.5.5",
     "polished": "^1.7.0",
@@ -19,14 +20,13 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build-storybook": "build-storybook -c .storybook -o public",
-    "prettier": "prettier-eslint --list-different \"src/**/*.js\"",
-    "eslint": "eslint \"src/**/*.js\""
+    "format": "prettier-eslint 'src/**/*.js' --single-quote --write",
+    "lint": "eslint 'src/**/*.js'"
   },
   "babel": {
     "presets": [
@@ -46,9 +46,9 @@
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.3.0",
     "firebase-tools": "^3.9.2",
-    "gatsby-plugin-styled-components": "^1.0.3",
     "jest": "^21.1.0",
     "lint-staged": "^4.2.1",
+    "pre-commit": "^1.2.2",
     "prettier": "^1.5.2",
     "prettier-eslint-cli": "^4.3.2",
     "react-addons-test-utils": "^15.6.0",
@@ -68,8 +68,9 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "prettier-eslint --write --list-different",
+      "yarn format",
       "git add"
     ]
-  }
+  },
+  "pre-commit": "lint-staged"
 }
