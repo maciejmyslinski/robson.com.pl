@@ -1,6 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { injectGlobal } from 'styled-components';
+
+// eslint-disable-next-line
+injectGlobal`
+  body, html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+`;
 
 const TemplateWrapper = ({ children }) => (
   <div>

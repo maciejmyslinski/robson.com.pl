@@ -6,6 +6,9 @@ import Link from 'gatsby-link';
 import { Link as SimpleLink } from 'react-router-dom';
 import { position } from 'polished';
 import typography from '../../utils/typography';
+import logo from '../../images/logo.png';
+import logo2x from '../../images/logo@2x.png';
+import logo3x from '../../images/logo@3x.png';
 
 const { rhythm, scale } = typography;
 
@@ -38,7 +41,19 @@ const TopBar = styled.div`
 const Wrapper = styled.div`
   width: 100vw;
   max-width: 1024px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 769px) {
+    justify-content: space-between;
+  }
 `;
+
+const Logo = styled.img`
+  margin: 0;
+  height: 54px;
+`
 
 const MainNavbar = props => {
   const { elements, env } = props;
@@ -66,6 +81,14 @@ const MainNavbar = props => {
   return (
     <TopBar>
       <Wrapper>
+        <Logo
+          src={logo3x}
+          srcSet={`
+            ${logo},
+            ${logo2x} 2x,
+            ${logo3x} 3x
+          `}
+        />
         <MenuElements>
           {elements.map(element =>
             <Element key={uuid()} to={element.path}>
