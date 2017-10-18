@@ -26,7 +26,8 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "build-storybook": "build-storybook -c .storybook -o public",
     "format": "prettier-eslint 'src/**/*.js' --single-quote --write",
-    "lint": "eslint 'src/**/*.js'"
+    "lint": "yarn eslint 'src/**/*.js'",
+    "lint:fix": "yarn lint --fix"
   },
   "babel": {
     "presets": [
@@ -35,22 +36,19 @@
     ]
   },
   "devDependencies": {
+    "babel-eslint": "8.0.1",
     "babel-jest": "^21.0.2",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.6.0",
-    "eslint": "^4.7.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-config-prettier": "^2.5.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "4.9.0",
+    "eslint-config-last": "0.0.3",
+    "eslint-config-prettier": "2.6.0",
     "eslint-plugin-jest": "^21.1.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.3.0",
+    "eslint-plugin-prettier": "2.3.1",
+    "eslint-plugin-react": "7.4.0",
     "firebase-tools": "^3.9.2",
     "jest": "^21.1.0",
-    "lint-staged": "^4.2.1",
-    "pre-commit": "^1.2.2",
-    "prettier": "^1.5.2",
-    "prettier-eslint-cli": "^4.3.2",
+    "prettier": "1.7.4",
     "react-addons-test-utils": "^15.6.0",
     "react-dom": "^15.6.1",
     "react-test-renderer": "^15.6.1"
@@ -65,12 +63,5 @@
     "snapshotSerializers": [
       "<rootDir>/node_modules/enzyme-to-json/serializer"
     ]
-  },
-  "lint-staged": {
-    "src/**/*.js": [
-      "yarn format",
-      "git add"
-    ]
-  },
-  "pre-commit": "lint-staged"
+  }
 }

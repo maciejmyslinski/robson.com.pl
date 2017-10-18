@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  extends: ['airbnb', 'prettier', 'prettier/react', 'plugin:jest/recommended'],
+  extends: ['last', 'prettier/react', 'plugin:react/recommended'],
   settings: {
     'import/core-modules': [
       'react',
@@ -13,10 +13,10 @@ module.exports = {
     ],
   },
   plugins: ['jest'],
-  rules: {
-    'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
-    'import/prefer-default-export': 'off',
-  },
+  // rules: {
+  //   'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
+  //   'import/prefer-default-export': 'off',
+  // },
   env: {
     'jest/globals': true,
   },
