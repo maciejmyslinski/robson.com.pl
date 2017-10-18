@@ -53,12 +53,12 @@ const Wrapper = styled.div`
 const Logo = styled.img`
   margin: 0;
   height: 54px;
-`
+`;
 
 const MainNavbar = props => {
   const { elements, env } = props;
   const LinkElement = env === 'gatsby' ? Link : SimpleLink;
-  const Element = styled(LinkElement) `
+  const Element = styled(LinkElement)`
     flex: 1;
     display: flex;
     justify-content: center;
@@ -69,8 +69,10 @@ const MainNavbar = props => {
     text-transform: uppercase;
     transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
 
-    &:hover, &:focus, &:active {
-      color: #FBB451;
+    &:hover,
+    &:focus,
+    &:active {
+      color: #fbb451;
     }
 
     @media (min-width: 769px) {
@@ -81,20 +83,22 @@ const MainNavbar = props => {
   return (
     <TopBar>
       <Wrapper>
-        <Logo
-          src={logo3x}
-          srcSet={`
+        <LinkElement to="/">
+          <Logo
+            src={logo3x}
+            srcSet={`
             ${logo},
             ${logo2x} 2x,
             ${logo3x} 3x
           `}
-        />
+          />
+        </LinkElement>
         <MenuElements>
-          {elements.map(element =>
+          {elements.map(element => (
             <Element key={uuid()} to={element.path}>
               {element.name}
-            </Element>,
-          )}
+            </Element>
+          ))}
         </MenuElements>
       </Wrapper>
     </TopBar>
