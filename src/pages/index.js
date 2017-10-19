@@ -1,10 +1,5 @@
 import React from 'react';
-import MainNavbar from '../components/MainNavbar';
 
-const IndexPage = () => (
-  <div>
-    <MainNavbar />
-  </div>
-);
+const IndexPage = () => <h1>Hello from homepage</h1>;
 
 export default IndexPage;

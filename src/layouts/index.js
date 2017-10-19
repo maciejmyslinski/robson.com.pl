@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { injectGlobal } from 'styled-components';
+import MainNavbar from 'components/MainNavbar';
 
 // eslint-disable-next-line
 injectGlobal`
@@ -25,6 +26,7 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
+    <MainNavbar />
     {children()}
   </div>
 );
