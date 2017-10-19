@@ -13,6 +13,7 @@
     "gatsby-source-filesystem": "^1.5.5",
     "polished": "^1.7.0",
     "react-typography": "^0.16.5",
+    "styled-media-query": "^2.0.1",
     "typography": "^0.16.6",
     "uuid": "^3.1.0"
   },
@@ -20,7 +21,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "test": "jest",
+    "test": "jest ./src",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "storybook": "export NODE_PATH=src && start-storybook -p 9001 -c .storybook",
@@ -74,6 +75,9 @@
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|svg)$": "<rootDir>/test/fileMock.js"
     },
-    "moduleDirectories": ["node_modules", "src"]
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
   }
 }

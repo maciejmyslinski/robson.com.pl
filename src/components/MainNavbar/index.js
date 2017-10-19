@@ -9,7 +9,8 @@ import typography from 'utils/typography';
 import logo from 'images/logo.png';
 import logo2x from 'images/logo@2x.png';
 import logo3x from 'images/logo@3x.png';
-import { TUNDORA, CASABLANCA } from 'colors';
+import { TUNDORA, CASABLANCA } from 'utils/colors';
+import media from 'utils/mediaQueries';
 
 const { rhythm, scale } = typography;
 const BACKGROUND_COLOR = TUNDORA;
@@ -24,6 +25,12 @@ const MenuElements = styled.div`
   justify-content: space-around;
   overflow: hidden;
   ${scale(0)};
+
+  ${media.greaterThan('medium')`
+    height: ${rhythm(3)};
+    position: static;
+    justify-content: flex-end;
+  `};
 
   @media (min-width: 769px) {
     height: ${rhythm(3)};
@@ -48,9 +55,9 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (min-width: 769px) {
+  ${media.greaterThan('medium')`
     justify-content: space-between;
-  }
+  `};
 `;
 
 const Logo = styled.img`
@@ -79,10 +86,10 @@ const MainNavbar = props => {
       color: ${ACTIVE_COLOR};
     }
 
-    @media (min-width: 769px) {
+    ${media.greaterThan('medium')`
       flex: 0 0;
       padding: 0 ${rhythm(0.5)};
-    }
+    `};
   `;
   return (
     <TopBar>

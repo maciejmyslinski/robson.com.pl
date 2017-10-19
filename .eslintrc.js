@@ -20,5 +20,6 @@ module.exports = {
     shallow: true,
     render: true,
     mount: true,
+    module: true,
   },
 };
