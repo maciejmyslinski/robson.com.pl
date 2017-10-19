@@ -3,8 +3,10 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 import typography from 'utils/typography';
 import media from 'utils/mediaQueries';
+import { CHAMBRAY } from 'utils/colors';
 
 const { rhythm, scale } = typography;
+const BUTTON_BG_COLOR = CHAMBRAY;
 
 const Container = styled.div`
   display: flex;
@@ -29,10 +31,23 @@ const Header = styled.h2.attrs({
 
 const Description = styled.p`
   text-align: center;
+  padding: 0 ${rhythm(0.5)};
+  max-width: 32rem;
+
+  ${media.greaterThan('medium')`
+    margin: 0 0 ${rhythm(2)};
+  `};
+`;
+
+const CtaWrapper = styled.div`
+  display: table;
 `;
 
 const CTA = styled(Link)`
-  background-color: #355e85;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${BUTTON_BG_COLOR};
   color: #fff;
   text-decoration: none;
   font-weight: 700;
@@ -46,6 +61,8 @@ const CTA = styled(Link)`
 const Incentive = styled.p`
   text-align: center;
   ${scale(-0.2999)};
+  display: table-caption;
+  caption-side: bottom;
 `;
 
 const IndexPage = () => (
@@ -55,8 +72,12 @@ const IndexPage = () => (
         Twój serwis bram, z którego jesteś zawsze zadowolony
       </FirstHeader>
       <Description>Dla firm, administratorów i osób prywatnych</Description>
-      <CTA to="/serwis">Umów serwis</CTA>
-      <Incentive>Tysiące zadowolonych klientów w całej Wielkopolsce</Incentive>
+      <CtaWrapper>
+        <CTA to="/serwis">Umów serwis</CTA>
+        <Incentive>
+          Tysiące zadowolonych klientów w całej Wielkopolsce
+        </Incentive>
+      </CtaWrapper>
     </Container>
     <Container>
       <Header>Sprężyny do Twojej bramy gotowe w ciągu kilku godzin</Header>
@@ -64,8 +85,10 @@ const IndexPage = () => (
         Doradzimy Tobie jak najlepiej dobrać sprężyny do bramy, wykonamy je od
         razu po Twoim zamówieniu i wyślemy do Ciebie jeszcze tego samego dnia.
       </Description>
-      <CTA to="/sprezyny">Zamów sprężyny</CTA>
-      <Incentive>Gwarantowana żywotność</Incentive>
+      <CtaWrapper>
+        <CTA to="/sprezyny">Zamów sprężyny</CTA>
+        <Incentive>Gwarantowana żywotność</Incentive>
+      </CtaWrapper>
     </Container>
   </div>
 );

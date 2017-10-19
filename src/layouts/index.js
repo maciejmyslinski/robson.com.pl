@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import styled, { injectGlobal } from 'styled-components';
 import MainNavbar from 'components/MainNavbar';
 import { BOTTOM_NAV_HEIGHT } from 'utils/layout';
+import media from 'utils/mediaQueries';
 
 // eslint-disable-next-line
 injectGlobal`
@@ -20,6 +21,10 @@ injectGlobal`
 
 const Container = styled.div`
   padding: 0 0 ${BOTTOM_NAV_HEIGHT} 0;
+
+  ${media.greaterThan('medium')`
+    padding: 0;
+  `};
 `;
 
 const TemplateWrapper = ({ children }) => (
