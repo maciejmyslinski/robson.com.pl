@@ -13,10 +13,6 @@ module.exports = {
     ],
   },
   plugins: ['jest'],
-  // rules: {
-  //   'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
-  //   'import/prefer-default-export': 'off',
-  // },
   env: {
     'jest/globals': true,
   },
