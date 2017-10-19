@@ -53,7 +53,7 @@ const Wrapper = styled.div`
 const Logo = styled.img`
   margin: 0;
   display: block;
-  height: 54px;
+  height: 55px;
 `;
 
 const MainNavbar = props => {
