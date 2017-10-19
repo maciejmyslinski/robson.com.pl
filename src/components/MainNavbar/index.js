@@ -11,6 +11,7 @@ import logo2x from 'images/logo@2x.png';
 import logo3x from 'images/logo@3x.png';
 import { TUNDORA, CASABLANCA } from 'utils/colors';
 import media from 'utils/mediaQueries';
+import { MAX_WIDTH } from 'utils/layout';
 
 const { rhythm, scale } = typography;
 const BACKGROUND_COLOR = TUNDORA;
@@ -50,7 +51,7 @@ const TopBar = styled.div`
 
 const Wrapper = styled.div`
   width: 100vw;
-  max-width: 1024px;
+  max-width: ${MAX_WIDTH};
   display: flex;
   align-items: center;
   justify-content: center;

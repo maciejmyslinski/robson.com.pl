@@ -22,8 +22,6 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "test": "jest ./src",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
     "storybook": "export NODE_PATH=src && start-storybook -p 9001 -c .storybook",
     "build-storybook": "export NODE_PATH=src && build-storybook -c .storybook -o public",
     "lint": "yarn eslint 'src/**/*.js'",
