@@ -1,6 +1,10 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import MainNavbar from '../components/MainNavbar';
 
-const IndexPage = () => <div />;
+const IndexPage = () => (
+  <div>
+    <MainNavbar />
+  </div>
+);
 
 export default IndexPage;

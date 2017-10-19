@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainNavbar should render 1`] = `
+<styled.div>
+  <styled.div>
+    <GatsbyLink
+      to="/"
+    >
+      <styled.img
+        src="test-file-stub"
+        srcSet="
+            test-file-stub,
+            test-file-stub 2x,
+            test-file-stub 3x
+          "
+      />
+    </GatsbyLink>
+    <styled.div>
+      <Styled(GatsbyLink)
+        to="/serwis"
+      >
+        Serwis
+      </Styled(GatsbyLink)>
+      <Styled(GatsbyLink)
+        to="/sprezyny"
+      >
+        Sprężyny
+      </Styled(GatsbyLink)>
+      <Styled(GatsbyLink)
+        to="/cenniki"
+      >
+        Cenniki
+      </Styled(GatsbyLink)>
+      <Styled(GatsbyLink)
+        to="/kontakt"
+      >
+        Kontakt
+      </Styled(GatsbyLink)>
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

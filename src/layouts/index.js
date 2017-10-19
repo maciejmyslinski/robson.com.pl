@@ -1,63 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
-import styled from 'styled-components';
-import config from '../../config.yml';
+import { injectGlobal } from 'styled-components';
 
-import './index.css';
+// eslint-disable-next-line
+injectGlobal`
+  body, html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
 
-const HeaderWrapper = styled.div`
-  background ${config.naglowek_tlo}
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
 `;
 
-const Header = () =>
-  <HeaderWrapper>
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem'
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none'
-          }}
-        >
-          {config.home_page_text}
-        </Link>
-      </h1>
-    </div>
-  </HeaderWrapper>;
-
-const TemplateWrapper = ({ children }) =>
+const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
       title="Gatsby Default Starter"
       meta={[
         { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' }
+        { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0
-      }}
-    >
-      {children()}
-    </div>
-  </div>;
+    {children()}
+  </div>
+);
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func,
+};
+
+TemplateWrapper.defaultProps = {
+  children: null,
 };
 
 export default TemplateWrapper;
