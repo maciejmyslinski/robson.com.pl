@@ -5,18 +5,21 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 import { Link as SimpleLink } from 'react-router-dom';
 import { position } from 'polished';
-import typography from '../../utils/typography';
-import logo from '../../images/logo.png';
-import logo2x from '../../images/logo@2x.png';
-import logo3x from '../../images/logo@3x.png';
+import typography from 'utils/typography';
+import logo from 'images/logo.png';
+import logo2x from 'images/logo@2x.png';
+import logo3x from 'images/logo@3x.png';
+import { TUNDORA, CASABLANCA } from 'colors';
 
 const { rhythm, scale } = typography;
+const BACKGROUND_COLOR = TUNDORA;
+const ACTIVE_COLOR = CASABLANCA;
 
 const MenuElements = styled.div`
   ${position('fixed', undefined, '0px', '0px', '0px')};
   display: flex;
   flex-flow: row nowrap;
-  background-color: #424242;
+  background-color: ${BACKGROUND_COLOR};
   height: ${rhythm(2)};
   justify-content: space-around;
   overflow: hidden;
@@ -34,7 +37,7 @@ const TopBar = styled.div`
   justify-content: center;
   width: 100vw;
   height: ${rhythm(3)};
-  background-color: #424242;
+  background-color: ${BACKGROUND_COLOR};
   overflow: hidden;
 `;
 
@@ -73,7 +76,7 @@ const MainNavbar = props => {
     &:hover,
     &:focus,
     &:active {
-      color: #fbb451;
+      color: ${ACTIVE_COLOR};
     }
 
     @media (min-width: 769px) {
