@@ -15,6 +15,7 @@
     "react-typography": "^0.16.5",
     "styled-media-query": "^2.0.1",
     "typography": "^0.16.6",
+    "typography-breakpoint-constants": "^0.15.10",
     "uuid": "^3.1.0"
   },
   "private": true,
