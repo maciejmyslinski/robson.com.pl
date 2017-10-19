@@ -1,3 +1,4 @@
+/* global __dirname module */
 module.exports = {
   siteMetadata: {
     title: 'Gatsby Default Starter',
