@@ -70,7 +70,9 @@ const Logo = styled.img`
 const MainNavbar = props => {
   const { elements, env } = props;
   const LinkElement = env === 'gatsby' ? Link : SimpleLink;
-  const Element = styled(LinkElement)`
+  const Element = styled(LinkElement).attrs({
+    activeClassName: 'active',
+  })`
     flex: 1;
     display: flex;
     justify-content: center;
@@ -83,7 +85,8 @@ const MainNavbar = props => {
 
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &.active {
       color: ${ACTIVE_COLOR};
     }
 
