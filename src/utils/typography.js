@@ -22,6 +22,11 @@ export default new Typography({
       'h1,.h1': {
         ...styles.h1,
         lineHeight: '3rem',
+        marginTop: '2.25rem',
+        marginBottom: '0.75rem',
+      },
+      p: {
+        marginBottom: '1.35rem',
       },
       [MIN_TABLET_MEDIA_QUERY]: {
         html: {

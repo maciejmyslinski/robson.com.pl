@@ -4,6 +4,7 @@ import Link from 'gatsby-link';
 import typography from 'utils/typography';
 import media from 'utils/mediaQueries';
 import { CHAMBRAY } from 'utils/colors';
+import { MAX_WIDTH } from 'utils/layout';
 
 const { rhythm, scale } = typography;
 const BUTTON_BG_COLOR = CHAMBRAY;
@@ -12,10 +13,12 @@ const Container = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin: ${rhythm(2)} ${rhythm(1)} ${rhythm(3)};
+  margin: ${rhythm(1)} auto ${rhythm(3)};
+  padding: 0 ${rhythm(1)};
+  max-width: ${MAX_WIDTH};
 
   ${media.greaterThan('medium')`
-    margin: ${rhythm(5)} ${rhythm(1)};
+    margin: ${rhythm(5)} auto;
   `};
 `;
 
@@ -35,7 +38,7 @@ const Description = styled.p`
   max-width: 32rem;
 
   ${media.greaterThan('medium')`
-    margin: 0 0 ${rhythm(2)};
+    margin: 0 0 ${rhythm(1.8)};
   `};
 `;
 
@@ -65,6 +68,33 @@ const Incentive = styled.p`
   caption-side: bottom;
 `;
 
+const Images = styled.div`
+  margin: 0 auto;
+  max-width: ${MAX_WIDTH};
+  display: flex;
+`;
+
+const ImageWrapper = styled.div`
+  flex: 1 1 auto;
+
+  & + & {
+    display: none;
+  }
+
+  ${media.greaterThan('medium')`
+    & + & {
+      display: block;
+    }
+  `};
+`;
+
+const Image = styled.img`
+  display: block;
+  margin: 0;
+  width: 100%;
+  height: auto;
+`;
+
 const IndexPage = () => (
   <div>
     <Container>
@@ -79,6 +109,14 @@ const IndexPage = () => (
         </Incentive>
       </CtaWrapper>
     </Container>
+    <Images>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+      </ImageWrapper>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+      </ImageWrapper>
+    </Images>
     <Container>
       <Header>Sprężyny do Twojej bramy gotowe w ciągu kilku godzin</Header>
       <Description>
