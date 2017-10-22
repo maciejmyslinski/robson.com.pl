@@ -144,6 +144,26 @@ const NiceBadgeImage = styled.img`
   display: block;
 `;
 
+const Footer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  padding: ${rhythm(3)} ${rhythm(1)};
+  background: #5c5c5c;
+  color: #fff;
+
+  ${media.greaterThan('medium')`
+    flex-flow: row nowrap;
+
+    & > * {
+      flex: 1 1;
+    }
+
+    & > *:not(:last-child) {
+      padding-right: ${rhythm(1)};
+    }
+  `};
+`;
+
 const IndexPage = () => (
   <div>
     <Container>
@@ -160,10 +180,10 @@ const IndexPage = () => (
     </Container>
     <Images>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+        <Image src="https://dummyimage.com/767x512/ccc/fff" />
       </ImageWrapper>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+        <Image src="https://dummyimage.com/767x512/bbb/fff" />
       </ImageWrapper>
     </Images>
     <Container>
@@ -179,10 +199,10 @@ const IndexPage = () => (
     </Container>
     <Images>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+        <Image src="https://dummyimage.com/767x512/ccc/fff" />
       </ImageWrapper>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+        <Image src="https://dummyimage.com/767x512/bbb/fff" />
       </ImageWrapper>
     </Images>
     <Container>
@@ -197,10 +217,10 @@ const IndexPage = () => (
     </Container>
     <Images>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+        <Image src="https://dummyimage.com/767x512/ccc/fff" />
       </ImageWrapper>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+        <Image src="https://dummyimage.com/767x512/bbb/fff" />
       </ImageWrapper>
     </Images>
     <Container>
@@ -225,10 +245,10 @@ const IndexPage = () => (
     </Container>
     <Images>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+        <Image src="https://dummyimage.com/767x512/ccc/fff" />
       </ImageWrapper>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+        <Image src="https://dummyimage.com/767x512/bbb/fff" />
       </ImageWrapper>
     </Images>
     <Container>
@@ -248,10 +268,10 @@ const IndexPage = () => (
     </Container>
     <Images>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+        <Image src="https://dummyimage.com/767x512/ccc/fff" />
       </ImageWrapper>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+        <Image src="https://dummyimage.com/767x512/bbb/fff" />
       </ImageWrapper>
     </Images>
     <Container>
@@ -268,10 +288,10 @@ const IndexPage = () => (
     </Container>
     <Images>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+        <Image src="https://dummyimage.com/767x512/ccc/fff" />
       </ImageWrapper>
       <ImageWrapper>
-        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+        <Image src="https://dummyimage.com/767x512/bbb/fff" />
       </ImageWrapper>
     </Images>
     <Container>
@@ -300,6 +320,20 @@ const IndexPage = () => (
         </ClientsList>
       </TrustIndicator>
     </Container>
+    <Footer>
+      <p>
+        Ta strona używa plików cookies.<br />
+        Korzystając ze strony akceptujesz regulamin strony.<br />
+        Copyright © 2017 ROBSON Robert Myśliński
+      </p>
+      <p>
+        ROBSON Robert Myśliński<br />
+        ul. Ostrówek 10/11<br />
+        61-122 Poznań<br />
+        618 657 835<br />
+        biuro@robson.com.pl
+      </p>
+    </Footer>
   </div>
 );
 
