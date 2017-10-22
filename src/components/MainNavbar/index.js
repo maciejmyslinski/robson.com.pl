@@ -26,6 +26,7 @@ const MenuElements = styled.div`
   justify-content: space-around;
   overflow: hidden;
   ${scale(0)};
+  z-index: 100;
 
   ${media.greaterThan('medium')`
     height: ${rhythm(3)};

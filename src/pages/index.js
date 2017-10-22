@@ -5,6 +5,7 @@ import Link from 'gatsby-link';
 import typography from 'utils/typography';
 import media from 'utils/mediaQueries';
 import ResponsiveImage from 'components/Image';
+import Images from 'components/Images';
 import { CHAMBRAY } from 'utils/colors';
 import { MAX_WIDTH } from 'utils/layout';
 
@@ -68,20 +69,6 @@ const Incentive = styled.p`
   ${scale(-0.2999)};
   display: table-caption;
   caption-side: bottom;
-`;
-
-const Images = styled.div`
-  margin: 0 auto;
-  max-width: ${MAX_WIDTH};
-  display: flex;
-
-  & > *:not(:first-child) {
-    display: none;
-
-    ${media.greaterThan('medium')`
-      display: block;
-    `};
-  }
 `;
 
 const BenefitTitle = styled.h3`
@@ -171,16 +158,18 @@ const IndexPage = ({ data }) => (
         </Incentive>
       </CtaWrapper>
     </Container>
-    <Images>
-      <ResponsiveImage
-        imageData={data.industrialGate}
-        alt="Brama przemysłowa"
-      />
-      <ResponsiveImage
-        imageData={data.entranceGateWithSolarPanel}
-        alt="Brama wjazdowa z panelem słonecznym"
-      />
-    </Images>
+    <Images
+      images={[
+        {
+          ...data.industrialGate,
+          alt: 'Brama przemysłowa',
+        },
+        {
+          ...data.entranceGateWithSolarPanel,
+          alt: 'Brama wjazdowa z panelem słonecznym',
+        },
+      ]}
+    />
     <Container>
       <Header>Sprężyny do Twojej bramy gotowe w ciągu kilku godzin</Header>
       <Description>
@@ -192,16 +181,18 @@ const IndexPage = ({ data }) => (
         <Incentive>Gwarantowana żywotność</Incentive>
       </CtaWrapper>
     </Container>
-    <Images>
-      <ResponsiveImage
-        imageData={data.garageDoorServiceman}
-        alt="Serwisant bramy garażowej"
-      />
-      <ResponsiveImage
-        imageData={data.toolsInAWorkshop}
-        alt="Narzędzia do bramy w warsztacie"
-      />
-    </Images>
+    <Images
+      images={[
+        {
+          ...data.garageDoorServiceman,
+          alt: 'Serwisant bramy garażowej',
+        },
+        {
+          ...data.toolsInAWorkshop,
+          alt: 'Narzędzia do bramy w warsztacie',
+        },
+      ]}
+    />
     <Container>
       <Header>Jak wybrać firmę serwisującą?</Header>
       <Description>
@@ -212,16 +203,18 @@ const IndexPage = ({ data }) => (
         <CTA to="sprezyny-do-bram">Pobierz poradnik</CTA>
       </CtaWrapper>
     </Container>
-    <Images>
-      <ResponsiveImage
-        imageData={data.twoServiecman}
-        alt="Dwóch serwisantów naprawiających siłownik podziemny firmy Nice"
-      />
-      <ResponsiveImage
-        imageData={data.modernHouse}
-        alt="Nowoczesny dom z bramą Nice"
-      />
-    </Images>
+    <Images
+      images={[
+        {
+          ...data.twoServiecman,
+          alt: 'Dwóch serwisantów naprawiających siłownik podziemny firmy Nice',
+        },
+        {
+          ...data.modernHouse,
+          alt: 'Nowoczesny dom z bramą Nice',
+        },
+      ]}
+    />
     <Container>
       <Header>Co współpraca z nami będzie oznaczała dla Ciebie</Header>
       <BenefitTitle>Poczujesz prawdziwą satysfakcję</BenefitTitle>
@@ -242,16 +235,18 @@ const IndexPage = ({ data }) => (
         bramy.
       </BenefitContent>
     </Container>
-    <Images>
-      <ResponsiveImage
-        imageData={data.robsonCars}
-        alt="Flota samochodów firmy robson"
-      />
-      <ResponsiveImage
-        imageData={data.fireBrigade}
-        alt="Bramy firmy nice w garażu straży pożarnej"
-      />
-    </Images>
+    <Images
+      images={[
+        {
+          ...data.robsonCars,
+          alt: 'Flota samochodów firmy robson',
+        },
+        {
+          ...data.fireBrigade,
+          alt: 'Bramy firmy nice w garażu straży pożarnej',
+        },
+      ]}
+    />
     <Container>
       <Header>Dlaczego możesz nam zufać?</Header>
       <BenefitTitle>Ponad 20 lat doświadczenia</BenefitTitle>
@@ -267,19 +262,21 @@ const IndexPage = ({ data }) => (
         elitarnego grona ekspertów rekomendowanych przez Nice.
       </BenefitContent>
     </Container>
-    <Images>
-      <ResponsiveImage
-        imageData={data.industrialGatesByNight}
-        alt="Przemysłowe bramy garażowe nocą"
-      />
-      <ResponsiveImage
-        imageData={data.modernHouseWithTwoGates}
-        alt="Nowoczesny dom jednorodzinny z dwoma bramami garażowymi"
-      />
-    </Images>
+    <Images
+      images={[
+        {
+          ...data.industrialGatesByNight,
+          alt: 'Przemysłowe bramy garażowe nocą',
+        },
+        {
+          ...data.modernHouseWithTwoGates,
+          alt: 'Nowoczesny dom jednorodzinny z dwoma bramami garażowymi',
+        },
+      ]}
+    />
     <Container>
       <Header>
-        Wszysko, co powinieneś wiedzieć zanim kupisz sprężyny do bramy
+        Wszystko, co powinieneś wiedzieć zanim kupisz sprężyny do bramy
       </Header>
       <Description>
         Sprężyny do bramy to zakup na całe lata. Z tego poradnika dowiesz się na
@@ -289,16 +286,18 @@ const IndexPage = ({ data }) => (
         <CTA to="sprezyny-do-bram">Pobierz poradnik</CTA>
       </CtaWrapper>
     </Container>
-    <Images>
-      <ResponsiveImage
-        imageData={data.twoRollingGrilles}
-        alt="Dwie bramy rolowane przy stromej ulicy"
-      />
-      <ResponsiveImage
-        imageData={data.metalWingGate}
-        alt="Metalowa brama skrzydłowa z automatyką Nice"
-      />
-    </Images>
+    <Images
+      images={[
+        {
+          ...data.twoRollingGrilles,
+          alt: 'Dwie bramy rolowane przy stromej ulicy',
+        },
+        {
+          ...data.metalWingGate,
+          alt: 'Metalowa brama skrzydłowa z automatyką Nice',
+        },
+      ]}
+    />
     <Container>
       <Header>Prosty cennik</Header>
       <Description>

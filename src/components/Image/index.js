@@ -6,7 +6,7 @@ const ResponsiveImage = ({ imageData, alt }) => (
   <div
     style={{
       flex:
-        (imageData.sizes && imageData.sizes.aspectRatio) ||
+        (imageData.sizes && `${imageData.sizes.aspectRatio}`) ||
         `0 1 ${imageData.resolutions && imageData.resolutions.width}px`,
     }}
   >
