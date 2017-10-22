@@ -95,6 +95,55 @@ const Image = styled.img`
   height: auto;
 `;
 
+const BenefitTitle = styled.h3`
+  margin-top: ${rhythm(2.3)};
+  margin-bottom: ${rhythm(0.7)};
+  text-align: center;
+  line-height: ${rhythm(1)};
+`;
+
+const BenefitContent = styled.p`
+  text-align: center;
+  max-width: 32rem;
+`;
+
+const TrustIndicator = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  width: 100%;
+
+  ${media.greaterThan('small')`
+    flex-flow: row nowrap;
+    align-items: flex-start;
+  `};
+`;
+const NiceBadge = styled.div`
+  display: flex;
+  justify-content: center;
+  flex: 1 1;
+`;
+const ClientsList = styled.div`
+  text-align: center;
+  margin-top: ${rhythm(2)};
+  flex: 1 1;
+
+  & > ul {
+    list-style-type: none;
+    margin-left: 0;
+  }
+
+  ${media.greaterThan('small')`
+    margin-top: 0;
+    text-align: left;
+    margin-left: ${rhythm(1)};
+    
+  `};
+`;
+const NiceBadgeImage = styled.img`
+  display: block;
+`;
+
 const IndexPage = () => (
   <div>
     <Container>
@@ -127,6 +176,129 @@ const IndexPage = () => (
         <CTA to="sprezyny-do-bram">Zamów sprężyny</CTA>
         <Incentive>Gwarantowana żywotność</Incentive>
       </CtaWrapper>
+    </Container>
+    <Images>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+      </ImageWrapper>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+      </ImageWrapper>
+    </Images>
+    <Container>
+      <Header>Jak wybrać firmę serwisującą?</Header>
+      <Description>
+        Z naszego poradnika dowiesz się na co zwracać uwagę, o co pytać i czego
+        oczekiwać od firmy serwisującej.
+      </Description>
+      <CtaWrapper>
+        <CTA to="sprezyny-do-bram">Pobierz poradnik</CTA>
+      </CtaWrapper>
+    </Container>
+    <Images>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+      </ImageWrapper>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+      </ImageWrapper>
+    </Images>
+    <Container>
+      <Header>Co współpraca z nami będzie oznaczała dla Ciebie</Header>
+      <BenefitTitle>Poczujesz prawdziwą satysfakcję</BenefitTitle>
+      <BenefitContent>
+        Dla nas Twoje zadowolenie to nie tylko slogan - to najwyższy priorytet.
+        Ze współpracy z nami możesz oczekiwać maksymalnej satysfakcji.
+      </BenefitContent>
+      <BenefitTitle>Oszczędzisz pieniądze</BenefitTitle>
+      <BenefitContent>
+        Nasi fachowcy pracują efektywnie i większość prac wykonują na miejscu.
+        Dla Ciebie oznacza to, że szybciej będziesz cieszył się sprawną bramą i
+        zapłacisz mniej.
+      </BenefitContent>
+      <BenefitTitle>Załatwisz wszystko za jednym razem</BenefitTitle>
+      <BenefitContent>
+        Z bramami potrafimy zrobić wszystko - od przeglądu po generalny remont.
+        Jako jedni z nielicznych samodzielnie wyprodukujemy sprężyny do Twojej
+        bramy.
+      </BenefitContent>
+    </Container>
+    <Images>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+      </ImageWrapper>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+      </ImageWrapper>
+    </Images>
+    <Container>
+      <Header>Dlaczego możesz nam zufać?</Header>
+      <BenefitTitle>Ponad 20 lat doświadczenia</BenefitTitle>
+      <BenefitContent>
+        Bramy to nasza specjalność od 1996 roku. Dziesiątki lat doświadczenia
+        sprawiają, że jesteśmy dla Ciebie wyjątkowo bezpiecznym wyborem.
+      </BenefitContent>
+      <BenefitTitle>Licencjonowany partner Nice</BenefitTitle>
+      <BenefitContent>
+        Stoimy na barkach gigantów. Nice to jeden z największych producentów
+        automatyki i bram w całej Europie. Firma Nice udzieliła naszym
+        serwisantom imiennych licencji instalatorów. Oznacza to, że należą do
+        elitarnego grona ekspertów rekomendowanych przez Nice.
+      </BenefitContent>
+    </Container>
+    <Images>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+      </ImageWrapper>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+      </ImageWrapper>
+    </Images>
+    <Container>
+      <Header>
+        Wszysko, co powinieneś wiedzieć zanim kupisz sprężyny do bramy
+      </Header>
+      <Description>
+        Sprężyny do bramy to zakup na całe lata. Z tego poradnika dowiesz się na
+        co zwrócić uwagę, żebyś podjął najlepszą decyzję przy ich zakupie.
+      </Description>
+      <CtaWrapper>
+        <CTA to="sprezyny-do-bram">Pobierz poradnik</CTA>
+      </CtaWrapper>
+    </Container>
+    <Images>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/ccc/fff" />
+      </ImageWrapper>
+      <ImageWrapper>
+        <Image src="https://dummyimage.com/600x400/bbb/fff" />
+      </ImageWrapper>
+    </Images>
+    <Container>
+      <Header>Prosty cennik</Header>
+      <Description>
+        Wszysko, co jest wysokiej jakości, kosztuje. Przygotowaliśmy dla Ciebie
+        złoty środek - idealny stosunek jakości do ceny.
+      </Description>
+      <CtaWrapper>
+        <CTA to="sprezyny-do-bram">Sprawdź ceny</CTA>
+      </CtaWrapper>
+    </Container>
+    <Container>
+      <TrustIndicator>
+        <NiceBadge>
+          <NiceBadgeImage src="https://dummyimage.com/200x200/bbb/fff" />
+        </NiceBadge>
+        <ClientsList>
+          <h3>Zaufali nam:</h3>
+          <ul>
+            <li>Politechnika Poznańska</li>
+            <li>Pol Strautmann Sp. z o.o.</li>
+            <li>Impel</li>
+            <li>BMW Olszowiec</li>
+          </ul>
+        </ClientsList>
+      </TrustIndicator>
     </Container>
   </div>
 );
