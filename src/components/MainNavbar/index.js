@@ -138,7 +138,7 @@ MainNavbar.defaultProps = {
     },
     {
       name: 'Sprężyny',
-      path: '/sprezyny',
+      path: '/sprezyny-do-bram',
     },
     {
       name: 'Cenniki',

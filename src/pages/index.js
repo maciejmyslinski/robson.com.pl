@@ -124,7 +124,7 @@ const IndexPage = () => (
         razu po Twoim zamówieniu i wyślemy do Ciebie jeszcze tego samego dnia.
       </Description>
       <CtaWrapper>
-        <CTA to="/sprezyny">Zamów sprężyny</CTA>
+        <CTA to="sprezyny-do-bram">Zamów sprężyny</CTA>
         <Incentive>Gwarantowana żywotność</Incentive>
       </CtaWrapper>
     </Container>
