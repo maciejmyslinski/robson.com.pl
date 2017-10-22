@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 import typography from 'utils/typography';
 import media from 'utils/mediaQueries';
+import ResponsiveImage from 'components/Image';
 import { CHAMBRAY } from 'utils/colors';
 import { MAX_WIDTH } from 'utils/layout';
 
@@ -72,27 +74,14 @@ const Images = styled.div`
   margin: 0 auto;
   max-width: ${MAX_WIDTH};
   display: flex;
-`;
 
-const ImageWrapper = styled.div`
-  flex: 1 1 auto;
-
-  & + & {
+  & > *:not(:first-child) {
     display: none;
-  }
 
-  ${media.greaterThan('medium')`
-    & + & {
+    ${media.greaterThan('medium')`
       display: block;
-    }
-  `};
-`;
-
-const Image = styled.img`
-  display: block;
-  margin: 0;
-  width: 100%;
-  height: auto;
+    `};
+  }
 `;
 
 const BenefitTitle = styled.h3`
@@ -140,16 +129,20 @@ const ClientsList = styled.div`
     
   `};
 `;
-const NiceBadgeImage = styled.img`
-  display: block;
-`;
 
 const Footer = styled.div`
   display: flex;
-  flex-flow: column nowrap;
+  justify-content: center;
   padding: ${rhythm(3)} ${rhythm(1)};
   background: #5c5c5c;
   color: #fff;
+`;
+
+const FooterInner = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: ${MAX_WIDTH};
+  width: 100%;
 
   ${media.greaterThan('medium')`
     flex-flow: row nowrap;
@@ -164,7 +157,7 @@ const Footer = styled.div`
   `};
 `;
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <div>
     <Container>
       <FirstHeader>
@@ -179,12 +172,14 @@ const IndexPage = () => (
       </CtaWrapper>
     </Container>
     <Images>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/ccc/fff" />
-      </ImageWrapper>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/bbb/fff" />
-      </ImageWrapper>
+      <ResponsiveImage
+        imageData={data.industrialGate}
+        alt="Brama przemysłowa"
+      />
+      <ResponsiveImage
+        imageData={data.entranceGateWithSolarPanel}
+        alt="Brama wjazdowa z panelem słonecznym"
+      />
     </Images>
     <Container>
       <Header>Sprężyny do Twojej bramy gotowe w ciągu kilku godzin</Header>
@@ -198,12 +193,14 @@ const IndexPage = () => (
       </CtaWrapper>
     </Container>
     <Images>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/ccc/fff" />
-      </ImageWrapper>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/bbb/fff" />
-      </ImageWrapper>
+      <ResponsiveImage
+        imageData={data.garageDoorServiceman}
+        alt="Serwisant bramy garażowej"
+      />
+      <ResponsiveImage
+        imageData={data.toolsInAWorkshop}
+        alt="Narzędzia do bramy w warsztacie"
+      />
     </Images>
     <Container>
       <Header>Jak wybrać firmę serwisującą?</Header>
@@ -216,12 +213,14 @@ const IndexPage = () => (
       </CtaWrapper>
     </Container>
     <Images>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/ccc/fff" />
-      </ImageWrapper>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/bbb/fff" />
-      </ImageWrapper>
+      <ResponsiveImage
+        imageData={data.twoServiecman}
+        alt="Dwóch serwisantów naprawiających siłownik podziemny firmy Nice"
+      />
+      <ResponsiveImage
+        imageData={data.modernHouse}
+        alt="Nowoczesny dom z bramą Nice"
+      />
     </Images>
     <Container>
       <Header>Co współpraca z nami będzie oznaczała dla Ciebie</Header>
@@ -244,12 +243,14 @@ const IndexPage = () => (
       </BenefitContent>
     </Container>
     <Images>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/ccc/fff" />
-      </ImageWrapper>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/bbb/fff" />
-      </ImageWrapper>
+      <ResponsiveImage
+        imageData={data.robsonCars}
+        alt="Flota samochodów firmy robson"
+      />
+      <ResponsiveImage
+        imageData={data.fireBrigade}
+        alt="Bramy firmy nice w garażu straży pożarnej"
+      />
     </Images>
     <Container>
       <Header>Dlaczego możesz nam zufać?</Header>
@@ -267,12 +268,14 @@ const IndexPage = () => (
       </BenefitContent>
     </Container>
     <Images>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/ccc/fff" />
-      </ImageWrapper>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/bbb/fff" />
-      </ImageWrapper>
+      <ResponsiveImage
+        imageData={data.industrialGatesByNight}
+        alt="Przemysłowe bramy garażowe nocą"
+      />
+      <ResponsiveImage
+        imageData={data.modernHouseWithTwoGates}
+        alt="Nowoczesny dom jednorodzinny z dwoma bramami garażowymi"
+      />
     </Images>
     <Container>
       <Header>
@@ -287,12 +290,14 @@ const IndexPage = () => (
       </CtaWrapper>
     </Container>
     <Images>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/ccc/fff" />
-      </ImageWrapper>
-      <ImageWrapper>
-        <Image src="https://dummyimage.com/767x512/bbb/fff" />
-      </ImageWrapper>
+      <ResponsiveImage
+        imageData={data.twoRollingGrilles}
+        alt="Dwie bramy rolowane przy stromej ulicy"
+      />
+      <ResponsiveImage
+        imageData={data.metalWingGate}
+        alt="Metalowa brama skrzydłowa z automatyką Nice"
+      />
     </Images>
     <Container>
       <Header>Prosty cennik</Header>
@@ -307,7 +312,10 @@ const IndexPage = () => (
     <Container>
       <TrustIndicator>
         <NiceBadge>
-          <NiceBadgeImage src="https://dummyimage.com/200x200/bbb/fff" />
+          <ResponsiveImage
+            imageData={data.nicePartner}
+            alt="Odznaka licencjonowanego partnera firmy Nice"
+          />
         </NiceBadge>
         <ClientsList>
           <h3>Zaufali nam:</h3>
@@ -321,20 +329,108 @@ const IndexPage = () => (
       </TrustIndicator>
     </Container>
     <Footer>
-      <p>
-        Ta strona używa plików cookies.<br />
-        Korzystając ze strony akceptujesz regulamin strony.<br />
-        Copyright © 2017 ROBSON Robert Myśliński
-      </p>
-      <p>
-        ROBSON Robert Myśliński<br />
-        ul. Ostrówek 10/11<br />
-        61-122 Poznań<br />
-        618 657 835<br />
-        biuro@robson.com.pl
-      </p>
+      <FooterInner>
+        <p>
+          Ta strona używa plików cookies.<br />
+          Korzystając ze strony akceptujesz regulamin strony.<br />
+          Copyright © 2017 ROBSON Robert Myśliński
+        </p>
+        <p>
+          ROBSON Robert Myśliński<br />
+          ul. Ostrówek 10/11<br />
+          61-122 Poznań<br />
+          618 657 835<br />
+          biuro@robson.com.pl
+        </p>
+      </FooterInner>
     </Footer>
   </div>
 );
 
+IndexPage.propTypes = {
+  data: PropTypes.shape({}).isRequired,
+};
+
 export default IndexPage;
+
+export const query = graphql`
+  query HomePageQuery {
+    industrialGate: imageSharp(id: { regex: "/brama-przemyslowa/" }) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    entranceGateWithSolarPanel: imageSharp(
+      id: { regex: "/brama-wjazdowa-z-panelem-slonecznym/" }
+    ) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    garageDoorServiceman: imageSharp(
+      id: { regex: "/serwisant-bramy-garazowej/" }
+    ) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    toolsInAWorkshop: imageSharp(id: { regex: "/narzedzia-do-bramy/" }) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    twoServiecman: imageSharp(
+      id: { regex: "/serwisant-naprawia-silownik-podziemny/" }
+    ) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    modernHouse: imageSharp(id: { regex: "/nowoczesny-dom-z-brama-nice/" }) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    robsonCars: imageSharp(id: { regex: "/pojazdy-robson/" }) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    fireBrigade: imageSharp(id: { regex: "/bramy-garazowe-strazy-pozarnej/" }) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    industrialGatesByNight: imageSharp(
+      id: { regex: "/przemyslowe-bramy-garazowe-noca/" }
+    ) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    modernHouseWithTwoGates: imageSharp(
+      id: { regex: "/nowoczesny-dom-jednorodzinny-z-dwoma-bramami-garazowymi/" }
+    ) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    twoRollingGrilles: imageSharp(
+      id: { regex: "/kraty-rolowane-przy-stromej-ulicy/" }
+    ) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    metalWingGate: imageSharp(id: { regex: "/metalowa-brama-skrzydlowa/" }) {
+      sizes(maxWidth: 767) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    nicePartner: imageSharp(id: { regex: "/licencjonowany-partner-nice/" }) {
+      resolutions(width: 200) {
+        ...GatsbyImageSharpResolutions_tracedSVG
+      }
+    }
+  }
+`;
