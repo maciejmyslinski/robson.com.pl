@@ -27,6 +27,7 @@
     "build-storybook": "export NODE_PATH=src && build-storybook -c .storybook -o public",
     "lint": "yarn eslint 'src/**/*.js'",
     "format": "yarn lint --fix",
+    "browser-sync": "browser-sync start --s public",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -44,6 +45,7 @@
   "devDependencies": {
     "babel-eslint": "8.0.1",
     "babel-jest": "^21.0.2",
+    "browser-sync": "^2.18.13",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.6.0",
     "eslint": "4.9.0",
