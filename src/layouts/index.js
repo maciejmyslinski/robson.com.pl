@@ -63,7 +63,7 @@ export const query = graphql`
   query MainLayoutQuery {
     logo: imageSharp(id: { regex: "/logo/" }) {
       resolutions(width: 198) {
-        ...GatsbyImageSharpResolutions
+        ...GatsbyImageSharpResolutions_noBase64
       }
     }
   }
