@@ -28,7 +28,7 @@ const Container = styled.div`
   `};
 `;
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ data, children }) => (
   <Container>
     <Helmet
       title="Gatsby Default Starter"
@@ -37,7 +37,7 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <MainNavbar />
+    <MainNavbar logo={data.logo} />
     {children()}
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin-ext"
@@ -48,6 +48,9 @@ const TemplateWrapper = ({ children }) => (
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
+  data: PropTypes.shape({
+    logo: PropTypes.shape({}),
+  }).isRequired,
 };
 
 TemplateWrapper.defaultProps = {
@@ -55,3 +58,13 @@ TemplateWrapper.defaultProps = {
 };
 
 export default TemplateWrapper;
+
+export const query = graphql`
+  query MainLayoutQuery {
+    logo: imageSharp(id: { regex: "/logo/" }) {
+      resolutions(width: 198) {
+        ...GatsbyImageSharpResolutions
+      }
+    }
+  }
+`;

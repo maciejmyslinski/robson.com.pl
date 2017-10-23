@@ -6,13 +6,13 @@ exports[`MainNavbar should render 1`] = `
     <GatsbyLink
       to="/"
     >
-      <styled.img
-        src="test-file-stub"
-        srcSet="
-            test-file-stub,
-            test-file-stub 2x,
-            test-file-stub 3x
-          "
+      <Styled(Image)
+        resolutions={Object {}}
+        style={
+          Object {
+            "display": "block",
+          }
+        }
       />
     </GatsbyLink>
     <styled.div>

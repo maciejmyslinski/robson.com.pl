@@ -2,13 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'uuid/v4';
 import styled from 'styled-components';
+import Image from 'gatsby-image';
 import Link from 'gatsby-link';
 import { Link as SimpleLink } from 'react-router-dom';
 import { position } from 'polished';
 import typography from 'utils/typography';
-import logo from 'images/logo.png';
-import logo2x from 'images/logo@2x.png';
-import logo3x from 'images/logo@3x.png';
 import { TUNDORA, CASABLANCA } from 'utils/colors';
 import media from 'utils/mediaQueries';
 import { MAX_WIDTH, BOTTOM_NAV_HEIGHT } from 'utils/layout';
@@ -62,14 +60,14 @@ const Wrapper = styled.div`
   `};
 `;
 
-const Logo = styled.img`
+const Logo = styled(Image)`
   margin: 0;
   display: block;
   height: ${rhythm(2.2)};
 `;
 
 const MainNavbar = props => {
-  const { elements, env } = props;
+  const { elements, env, logo } = props;
   const LinkElement = env === 'gatsby' ? Link : SimpleLink;
   const Element = styled(LinkElement).attrs({
     activeClassName: 'active',
@@ -100,14 +98,7 @@ const MainNavbar = props => {
     <TopBar>
       <Wrapper>
         <LinkElement to="/">
-          <Logo
-            src={logo3x}
-            srcSet={`
-            ${logo},
-            ${logo2x} 2x,
-            ${logo3x} 3x
-          `}
-          />
+          <Logo resolutions={logo.resolutions} style={{ display: 'block' }} />
         </LinkElement>
         <MenuElements>
           {elements.map(element => (
@@ -129,6 +120,9 @@ MainNavbar.propTypes = {
     }),
   ).isRequired,
   env: PropTypes.oneOf(['gatsby', 'test']),
+  logo: PropTypes.shape({
+    resolutions: PropTypes.shape({}),
+  }).isRequired,
 };
 
 MainNavbar.defaultProps = {

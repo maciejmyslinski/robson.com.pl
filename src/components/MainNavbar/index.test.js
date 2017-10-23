@@ -3,7 +3,10 @@ import MainNavbar from './';
 
 describe('MainNavbar', () => {
   it('should render', () => {
-    const component = shallow(<MainNavbar />);
+    const logo = {
+      resolutions: {},
+    };
+    const component = shallow(<MainNavbar logo={logo} />);
     expect(component).toMatchSnapshot();
   });
 });
