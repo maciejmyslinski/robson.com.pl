@@ -39,6 +39,10 @@ const TemplateWrapper = ({ children }) => (
     />
     <MainNavbar />
     {children()}
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin-ext"
+      rel="stylesheet"
+    />
   </Container>
 );
 

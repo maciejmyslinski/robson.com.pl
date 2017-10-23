@@ -6,12 +6,6 @@ export default new Typography({
   baseFontSize: '16px',
   baseLineHeight: 1.5,
   scaleRatio: 2,
-  googleFonts: [
-    {
-      name: 'Roboto',
-      styles: ['400', '500', '700'],
-    },
-  ],
   headerFontFamily: ['Roboto', 'sans-serif'],
   bodyFontFamily: ['Roboto', 'sans-serif'],
   headerColor: 'hsla(0, 0%, 15%, 0.87)',
