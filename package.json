@@ -70,6 +70,9 @@
     "setupFiles": [
       "./test/jestsetup.js"
     ],
+    "transform": {
+      ".*": "babel-jest"
+    },
     "snapshotSerializers": [
       "<rootDir>/node_modules/enzyme-to-json/serializer"
     ],
