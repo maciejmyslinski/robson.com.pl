@@ -11,8 +11,7 @@ jobs:
 
     steps:
       - checkout
-      - run: curl -o- -L https://yarnpkg.com/install.sh | bash
-      - run: export PATH="$PATH:/opt/yarn-[version]/bin"
+      - run: sudo apt-get update && sudo apt-get install yarn
 
       # Download and cache dependencies
       - restore_cache:
