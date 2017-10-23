@@ -6,6 +6,7 @@
   "dependencies": {
     "@storybook/react": "^3.2.8",
     "gatsby": "^1.8.12",
+    "gatsby-image": "^1.0.14",
     "gatsby-link": "^1.6.8",
     "gatsby-plugin-react-helmet": "^1.0.3",
     "gatsby-plugin-styled-components": "^1.0.3",
@@ -15,6 +16,7 @@
     "react-typography": "^0.16.5",
     "styled-media-query": "^2.0.1",
     "typography": "^0.16.6",
+    "typography-breakpoint-constants": "^0.15.10",
     "uuid": "^3.1.0"
   },
   "private": true,
@@ -26,6 +28,7 @@
     "build-storybook": "export NODE_PATH=src && build-storybook -c .storybook -o public",
     "lint": "yarn eslint 'src/**/*.js'",
     "format": "yarn lint --fix",
+    "browser-sync": "browser-sync start --s public",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -38,11 +41,22 @@
     "presets": [
       "env",
       "react"
-    ]
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          "env",
+          "react",
+          "stage-3"
+        ]
+      }
+    }
   },
   "devDependencies": {
     "babel-eslint": "8.0.1",
     "babel-jest": "^21.0.2",
+    "babel-preset-stage-3": "^6.24.1",
+    "browser-sync": "^2.18.13",
     "enzyme": "^2.9.1",
     "enzyme-to-json": "^1.6.0",
     "eslint": "4.9.0",
@@ -52,6 +66,8 @@
     "eslint-plugin-prettier": "2.3.1",
     "eslint-plugin-react": "7.4.0",
     "firebase-tools": "^3.9.2",
+    "gatsby-plugin-sharp": "^1.6.10",
+    "gatsby-transformer-sharp": "^1.6.12",
     "husky": "^0.14.3",
     "jest": "^21.1.0",
     "lint-staged": "^4.3.0",
@@ -65,7 +81,7 @@
       "./test/jestsetup.js"
     ],
     "transform": {
-      ".*": "<rootDir>/node_modules/babel-jest"
+      ".*": "babel-jest"
     },
     "snapshotSerializers": [
       "<rootDir>/node_modules/enzyme-to-json/serializer"

@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { injectGlobal } from 'styled-components';
+import styled, { injectGlobal } from 'styled-components';
 import MainNavbar from 'components/MainNavbar';
+import { BOTTOM_NAV_HEIGHT } from 'utils/layout';
+import media from 'utils/mediaQueries';
 
 // eslint-disable-next-line
 injectGlobal`
@@ -10,6 +12,7 @@ injectGlobal`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
+    overflow-x: hidden;
   }
 
   *, *:before, *:after {
@@ -17,8 +20,16 @@ injectGlobal`
   }
 `;
 
+const Container = styled.div`
+  padding: 0 0 ${BOTTOM_NAV_HEIGHT} 0;
+
+  ${media.greaterThan('medium')`
+    padding: 0;
+  `};
+`;
+
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <Container>
     <Helmet
       title="Gatsby Default Starter"
       meta={[
@@ -28,7 +39,7 @@ const TemplateWrapper = ({ children }) => (
     />
     <MainNavbar />
     {children()}
-  </div>
+  </Container>
 );
 
 TemplateWrapper.propTypes = {

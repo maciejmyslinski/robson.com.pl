@@ -22,7 +22,7 @@ exports[`MainNavbar should render 1`] = `
         Serwis
       </Styled(GatsbyLink)>
       <Styled(GatsbyLink)
-        to="/sprezyny"
+        to="/sprezyny-do-bram"
       >
         Sprężyny
       </Styled(GatsbyLink)>

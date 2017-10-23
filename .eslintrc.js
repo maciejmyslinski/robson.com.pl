@@ -21,5 +21,7 @@ module.exports = {
     render: true,
     mount: true,
     module: true,
+    graphql: true,
+    console: true,
   },
 };

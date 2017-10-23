@@ -11,7 +11,7 @@ import logo2x from 'images/logo@2x.png';
 import logo3x from 'images/logo@3x.png';
 import { TUNDORA, CASABLANCA } from 'utils/colors';
 import media from 'utils/mediaQueries';
-import { MAX_WIDTH } from 'utils/layout';
+import { MAX_WIDTH, BOTTOM_NAV_HEIGHT } from 'utils/layout';
 
 const { rhythm, scale } = typography;
 const BACKGROUND_COLOR = TUNDORA;
@@ -22,10 +22,11 @@ const MenuElements = styled.div`
   display: flex;
   flex-flow: row nowrap;
   background-color: ${BACKGROUND_COLOR};
-  height: ${rhythm(2)};
+  height: ${BOTTOM_NAV_HEIGHT};
   justify-content: space-around;
   overflow: hidden;
   ${scale(0)};
+  z-index: 100;
 
   ${media.greaterThan('medium')`
     height: ${rhythm(3)};
@@ -64,7 +65,7 @@ const Wrapper = styled.div`
 const Logo = styled.img`
   margin: 0;
   display: block;
-  height: 55px;
+  height: ${rhythm(2.2)};
 `;
 
 const MainNavbar = props => {
@@ -138,7 +139,7 @@ MainNavbar.defaultProps = {
     },
     {
       name: 'Sprężyny',
-      path: '/sprezyny',
+      path: '/sprezyny-do-bram',
     },
     {
       name: 'Cenniki',

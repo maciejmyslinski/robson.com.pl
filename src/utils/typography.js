@@ -1,4 +1,5 @@
 import Typography from 'typography';
+import { MIN_TABLET_MEDIA_QUERY } from 'typography-breakpoint-constants';
 
 export default new Typography({
   title: 'robson',
@@ -8,7 +9,7 @@ export default new Typography({
   googleFonts: [
     {
       name: 'Roboto',
-      styles: ['400', '500'],
+      styles: ['400', '500', '700'],
     },
   ],
   headerFontFamily: ['Roboto', 'sans-serif'],
@@ -16,4 +17,22 @@ export default new Typography({
   headerColor: 'hsla(0, 0%, 15%, 0.87)',
   bodyColor: 'hsla(0, 0%, 15%, 0.87)',
   includeNormalize: true,
+  overrideStyles: (verticalRhythm, options, styles) => {
+    return {
+      'h1,.h1': {
+        ...styles.h1,
+        lineHeight: '3rem',
+        marginTop: '2.25rem',
+        marginBottom: '0.75rem',
+      },
+      p: {
+        marginBottom: '1.35rem',
+      },
+      [MIN_TABLET_MEDIA_QUERY]: {
+        html: {
+          fontSize: `${20 / 16 * 100}%`,
+        },
+      },
+    };
+  },
 });
