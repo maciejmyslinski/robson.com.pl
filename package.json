@@ -24,24 +24,25 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "test": "jest ./src",
-    "storybook": "export NODE_PATH=src && start-storybook -p 9001 -c .storybook",
-    "build-storybook": "export NODE_PATH=src && build-storybook -c .storybook -o public",
+    "storybook":
+      "export NODE_PATH=src && start-storybook -p 9001 -c .storybook",
+    "build-storybook":
+      "export NODE_PATH=src && build-storybook -c .storybook -o public",
     "lint": "yarn eslint 'src/**/*.js'",
     "format": "yarn lint --fix",
     "browser-sync": "browser-sync start --s public",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "format",
-      "git add"
-    ]
+    "src/**/*.js": ["format", "git add"]
   },
   "babel": {
-    "presets": [
-      "env",
-      "react"
-    ]
+    "presets": ["env", "react"],
+    "env": {
+      "test": {
+        "presets": ["env", "react"]
+      }
+    }
   },
   "devDependencies": {
     "babel-eslint": "8.0.1",
@@ -67,21 +68,14 @@
     "react-test-renderer": "^15.6.1"
   },
   "jest": {
-    "setupFiles": [
-      "./test/jestsetup.js"
-    ],
+    "setupFiles": ["./test/jestsetup.js"],
     "transform": {
       ".*": "babel-jest"
     },
-    "snapshotSerializers": [
-      "<rootDir>/node_modules/enzyme-to-json/serializer"
-    ],
+    "snapshotSerializers": ["<rootDir>/node_modules/enzyme-to-json/serializer"],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|svg)$": "<rootDir>/test/fileMock.js"
     },
-    "moduleDirectories": [
-      "node_modules",
-      "src"
-    ]
+    "moduleDirectories": ["node_modules", "src"]
   }
 }
