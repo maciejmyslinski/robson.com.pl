@@ -31,7 +31,7 @@ const Container = styled.div`
 const TemplateWrapper = ({ data, children }) => (
   <Container>
     <Helmet
-      title="Gatsby Default Starter"
+      title="Sprężyny Do Bram, Serwis Bram Garażowych w Poznaniu | ROBSON Robert Myśliński"
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
