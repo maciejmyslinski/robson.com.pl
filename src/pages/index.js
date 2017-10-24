@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
+import { lighten } from 'polished';
 import typography from 'utils/typography';
 import media from 'utils/mediaQueries';
 import ResponsiveImage from 'components/Image';
@@ -62,6 +63,22 @@ const CTA = styled(Link)`
   border-radius: 100px;
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16), 0 2px 20px 0 rgba(0, 0, 0, 0.12);
   text-transform: uppercase;
+  transition: box-shadow 0.3s ease-out, background-color 0.3s ease-out,
+    transform 0.3s ease-out;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.16),
+      0 4px 40px 0 rgba(0, 0, 0, 0.12);
+    transform: scale(1.07);
+  }
+
+  &:active {
+    background-color: ${lighten(0.05, BUTTON_BG_COLOR)};
+    transform: scale(1.03);
+  }
 `;
 
 const Incentive = styled.p`
