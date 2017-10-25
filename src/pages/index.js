@@ -7,7 +7,7 @@ import typography from 'utils/typography';
 import media from 'utils/mediaQueries';
 import ResponsiveImage from 'components/Image';
 import Images from 'components/Images';
-import { CHAMBRAY, CORNFLOWER } from 'utils/colors';
+import { CHAMBRAY } from 'utils/colors';
 import { MAX_WIDTH } from 'utils/layout';
 
 const { rhythm, scale } = typography;
@@ -133,40 +133,6 @@ const ClientsList = styled.div`
     
   `};
 `;
-
-const Footer = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: ${rhythm(3)} ${rhythm(1)};
-  background: #5c5c5c;
-  color: #fff;
-`;
-
-const FooterInner = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  max-width: ${MAX_WIDTH};
-  width: 100%;
-
-  ${media.greaterThan('medium')`
-    flex-flow: row nowrap;
-
-    & > * {
-      flex: 1 1;
-    }
-
-    & > *:not(:last-child) {
-      padding-right: ${rhythm(1)};
-    }
-  `};
-`;
-
-const FooterLink = styled(Link)`
-  color: ${CORNFLOWER};
-  text-decoration: none;
-`;
-
-const FooterA = FooterLink.withComponent('a');
 
 const IndexPage = ({ data }) => (
   <div>
@@ -351,26 +317,6 @@ const IndexPage = ({ data }) => (
         </ClientsList>
       </TrustIndicator>
     </Container>
-    <Footer>
-      <FooterInner>
-        <p>
-          Ta strona używa plików cookies.<br />
-          Korzystając ze strony akceptujesz{' '}
-          <FooterLink to="/regulamin">regulamin strony</FooterLink>.<br />
-          Copyright © 2017 ROBSON Robert Myśliński
-        </p>
-        <p>
-          ROBSON Robert Myśliński<br />
-          ul. Ostrówek 10/11<br />
-          61-122 Poznań<br />
-          <FooterA href="tel:+48618657835">618 657 835</FooterA>
-          <br />
-          <FooterA href="mailto:biuro@robson.com.pl">
-            biuro@robson.com.pl
-          </FooterA>
-        </p>
-      </FooterInner>
-    </Footer>
   </div>
 );
 

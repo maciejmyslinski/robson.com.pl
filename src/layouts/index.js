@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import Link from 'gatsby-link';
 import styled, { injectGlobal } from 'styled-components';
 import MainNavbar from 'components/MainNavbar';
 import { BOTTOM_NAV_HEIGHT } from 'utils/layout';
 import media from 'utils/mediaQueries';
+import typography from 'utils/typography';
+import { CORNFLOWER } from 'utils/colors';
+import { MAX_WIDTH } from 'utils/layout';
+
+const { rhythm } = typography;
 
 // eslint-disable-next-line
 injectGlobal`
@@ -27,6 +33,40 @@ const Container = styled.div`
     padding: 0;
   `};
 `;
+
+const Footer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: ${rhythm(3)} ${rhythm(1)};
+  background: #5c5c5c;
+  color: #fff;
+`;
+
+const FooterInner = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  max-width: ${MAX_WIDTH};
+  width: 100%;
+
+  ${media.greaterThan('medium')`
+    flex-flow: row nowrap;
+
+    & > * {
+      flex: 1 1;
+    }
+
+    & > *:not(:last-child) {
+      padding-right: ${rhythm(1)};
+    }
+  `};
+`;
+
+const FooterLink = styled(Link)`
+  color: ${CORNFLOWER};
+  text-decoration: none;
+`;
+
+const FooterA = FooterLink.withComponent('a');
 
 const TemplateWrapper = ({ data, children }) => (
   <Container>
@@ -60,6 +100,26 @@ const TemplateWrapper = ({ data, children }) => (
     </Helmet>
     <MainNavbar logo={data.logo} />
     {children()}
+    <Footer>
+      <FooterInner>
+        <p>
+          Ta strona używa plików cookies.<br />
+          Korzystając ze strony akceptujesz{' '}
+          <FooterLink to="/regulamin">regulamin strony</FooterLink>.<br />
+          Copyright © 2017 ROBSON Robert Myśliński
+        </p>
+        <p>
+          ROBSON Robert Myśliński<br />
+          ul. Ostrówek 10/11<br />
+          61-122 Poznań<br />
+          <FooterA href="tel:+48618657835">618 657 835</FooterA>
+          <br />
+          <FooterA href="mailto:biuro@robson.com.pl">
+            biuro@robson.com.pl
+          </FooterA>
+        </p>
+      </FooterInner>
+    </Footer>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin-ext"
       rel="stylesheet"
