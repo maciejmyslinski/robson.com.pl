@@ -7,7 +7,7 @@ import typography from 'utils/typography';
 import media from 'utils/mediaQueries';
 import ResponsiveImage from 'components/Image';
 import Images from 'components/Images';
-import { CHAMBRAY } from 'utils/colors';
+import { CHAMBRAY, CORNFLOWER } from 'utils/colors';
 import { MAX_WIDTH } from 'utils/layout';
 
 const { rhythm, scale } = typography;
@@ -160,6 +160,13 @@ const FooterInner = styled.div`
     }
   `};
 `;
+
+const FooterLink = styled(Link)`
+  color: ${CORNFLOWER};
+  text-decoration: none;
+`;
+
+const FooterA = FooterLink.withComponent('a');
 
 const IndexPage = ({ data }) => (
   <div>
@@ -348,15 +355,19 @@ const IndexPage = ({ data }) => (
       <FooterInner>
         <p>
           Ta strona używa plików cookies.<br />
-          Korzystając ze strony akceptujesz regulamin strony.<br />
+          Korzystając ze strony akceptujesz{' '}
+          <FooterLink to="/regulamin">regulamin strony</FooterLink>.<br />
           Copyright © 2017 ROBSON Robert Myśliński
         </p>
         <p>
           ROBSON Robert Myśliński<br />
           ul. Ostrówek 10/11<br />
           61-122 Poznań<br />
-          618 657 835<br />
-          biuro@robson.com.pl
+          <FooterA href="tel:+48618657835">618 657 835</FooterA>
+          <br />
+          <FooterA href="mailto:biuro@robson.com.pl">
+            biuro@robson.com.pl
+          </FooterA>
         </p>
       </FooterInner>
     </Footer>
