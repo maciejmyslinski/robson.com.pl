@@ -23,6 +23,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "serve": "gatsby serve",
     "test": "jest ./src",
     "storybook": "export NODE_PATH=src && start-storybook -p 9001 -c .storybook",
     "build-storybook": "export NODE_PATH=src && build-storybook -c .storybook -o public",
