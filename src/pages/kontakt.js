@@ -9,7 +9,7 @@ import media from 'utils/mediaQueries';
 const { rhythm } = typography;
 
 const PageWrapper = styled.div`
-  max-width: ${MAX_WIDTH};
+  max-width: calc(${MAX_WIDTH} + ${rhythm(2)});
   margin: 0 auto;
 
   ${media.greaterThan(MAX_WIDTH)`
