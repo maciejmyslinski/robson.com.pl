@@ -37,7 +37,7 @@ const Container = styled.div`
 const Footer = styled.div`
   display: flex;
   justify-content: center;
-  padding: ${rhythm(3)} ${rhythm(1)};
+  padding: ${rhythm(3)} ${rhythm(1)} ${rhythm(2)};
   background: #5c5c5c;
   color: #fff;
 `;
@@ -103,12 +103,6 @@ const TemplateWrapper = ({ data, children }) => (
     <Footer>
       <FooterInner>
         <p>
-          Ta strona używa plików cookies.<br />
-          Korzystając ze strony akceptujesz{' '}
-          <FooterLink to="/regulamin">regulamin strony</FooterLink>.<br />
-          Copyright © 2017 ROBSON Robert Myśliński
-        </p>
-        <p>
           ROBSON Robert Myśliński<br />
           ul. Ostrówek 10/11<br />
           61-122 Poznań<br />
@@ -117,6 +111,12 @@ const TemplateWrapper = ({ data, children }) => (
           <FooterA href="mailto:biuro@robson.com.pl">
             biuro@robson.com.pl
           </FooterA>
+        </p>
+        <p>
+          Ta strona używa plików cookies.<br />
+          Korzystając ze strony akceptujesz{' '}
+          <FooterLink to="/regulamin">regulamin strony</FooterLink>.<br />
+          Copyright © 2017 ROBSON Robert Myśliński
         </p>
       </FooterInner>
     </Footer>
