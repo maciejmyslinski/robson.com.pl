@@ -8,7 +8,7 @@ import { BOTTOM_NAV_HEIGHT } from 'utils/layout';
 import media from 'utils/mediaQueries';
 import typography from 'utils/typography';
 import { CORNFLOWER } from 'utils/colors';
-import { MAX_WIDTH } from 'utils/layout';
+import { MAX_WIDTH_PX } from 'utils/layout';
 
 const { rhythm } = typography;
 
@@ -45,7 +45,7 @@ const Footer = styled.div`
 const FooterInner = styled.div`
   display: flex;
   flex-flow: column nowrap;
-  max-width: ${MAX_WIDTH};
+  max-width: ${MAX_WIDTH_PX};
   width: 100%;
 
   ${media.greaterThan('medium')`
@@ -106,7 +106,7 @@ const TemplateWrapper = ({ data, children }) => (
           ROBSON Robert Myśliński<br />
           ul. Ostrówek 10/11<br />
           61-122 Poznań<br />
-          <FooterA href="tel:+48618657835">618 657 835</FooterA>
+          <FooterA href="tel:+48602338508">602 338 508</FooterA>
           <br />
           <FooterA href="mailto:biuro@robson.com.pl">
             biuro@robson.com.pl

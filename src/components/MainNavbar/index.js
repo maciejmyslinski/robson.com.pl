@@ -9,7 +9,7 @@ import { position } from 'polished';
 import typography from 'utils/typography';
 import { TUNDORA, CASABLANCA } from 'utils/colors';
 import media from 'utils/mediaQueries';
-import { MAX_WIDTH, BOTTOM_NAV_HEIGHT } from 'utils/layout';
+import { MAX_WIDTH_PX, BOTTOM_NAV_HEIGHT } from 'utils/layout';
 
 const { rhythm, scale } = typography;
 const BACKGROUND_COLOR = TUNDORA;
@@ -50,7 +50,7 @@ const TopBar = styled.div`
 
 const Wrapper = styled.div`
   width: 100vw;
-  max-width: ${MAX_WIDTH};
+  max-width: ${MAX_WIDTH_PX};
   display: flex;
   align-items: center;
   justify-content: center;

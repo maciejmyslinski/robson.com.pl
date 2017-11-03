@@ -8,7 +8,7 @@ import media from 'utils/mediaQueries';
 import ResponsiveImage from 'components/Image';
 import Images from 'components/Images';
 import { CHAMBRAY } from 'utils/colors';
-import { MAX_WIDTH } from 'utils/layout';
+import { MAX_WIDTH_PX } from 'utils/layout';
 
 const { rhythm, scale } = typography;
 const BUTTON_BG_COLOR = CHAMBRAY;
@@ -19,7 +19,7 @@ const Container = styled.div`
   align-items: center;
   margin: ${rhythm(1)} auto ${rhythm(3)};
   padding: 0 ${rhythm(1)};
-  max-width: ${MAX_WIDTH};
+  max-width: ${MAX_WIDTH_PX};
 
   ${media.greaterThan('medium')`
     margin: ${rhythm(5)} auto;

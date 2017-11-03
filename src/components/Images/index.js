@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Image from 'gatsby-image';
 import styled from 'styled-components';
-import { MAX_WIDTH } from 'utils/layout';
+import { MAX_WIDTH_PX } from 'utils/layout';
 import media from 'utils/mediaQueries';
 
 // consider we display one image (no siblings) with aspect ratio < 1
@@ -16,7 +16,7 @@ const calculateFlexGrowFactor = images =>
 
 const ImagesWrapper = styled.div`
   margin: 0 auto;
-  max-width: ${MAX_WIDTH};
+  max-width: ${MAX_WIDTH_PX};
   display: flex;
 
   & > *:not(:first-child) {
