@@ -106,7 +106,7 @@ const TemplateWrapper = ({ data, children }) => (
           ROBSON Robert Myśliński<br />
           ul. Ostrówek 10/11<br />
           61-122 Poznań<br />
-          <FooterA href="tel:+48618657835">618 657 835</FooterA>
+          <FooterA href="tel:+48602338508">602 338 508</FooterA>
           <br />
           <FooterA href="mailto:biuro@robson.com.pl">
             biuro@robson.com.pl
