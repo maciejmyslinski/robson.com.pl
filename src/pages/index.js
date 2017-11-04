@@ -167,7 +167,7 @@ const IndexPage = ({ data }) => (
         razu po Twoim zamówieniu i wyślemy do Ciebie jeszcze tego samego dnia.
       </Description>
       <CtaWrapper>
-        <CTA to="sprezyny-do-bram">Zamów sprężyny</CTA>
+        <CTA to="/sprezyny-do-bram">Zamów sprężyny</CTA>
         <Incentive>Gwarantowana żywotność</Incentive>
       </CtaWrapper>
     </Container>
@@ -190,7 +190,7 @@ const IndexPage = ({ data }) => (
         oczekiwać od firmy serwisującej.
       </Description>
       <CtaWrapper>
-        <CTA to="sprezyny-do-bram">Pobierz poradnik</CTA>
+        <CTA to="/sprezyny-do-bram">Pobierz poradnik</CTA>
       </CtaWrapper>
     </Container>
     <Images
@@ -273,7 +273,7 @@ const IndexPage = ({ data }) => (
         co zwrócić uwagę, żebyś podjął najlepszą decyzję przy ich zakupie.
       </Description>
       <CtaWrapper>
-        <CTA to="sprezyny-do-bram">Pobierz poradnik</CTA>
+        <CTA to="/sprezyny-do-bram">Pobierz poradnik</CTA>
       </CtaWrapper>
     </Container>
     <Images
@@ -295,7 +295,7 @@ const IndexPage = ({ data }) => (
         złoty środek - idealny stosunek jakości do ceny.
       </Description>
       <CtaWrapper>
-        <CTA to="sprezyny-do-bram">Sprawdź ceny</CTA>
+        <CTA to="/cenniki">Sprawdź ceny</CTA>
       </CtaWrapper>
     </Container>
     <Container>
