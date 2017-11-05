@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { MAX_WIDTH_PX } from 'utils/layout';
 import typography from 'utils/typography';
-import { pricing, pricingDetails } from 'content';
+import { pricing, pricingDetails } from 'site-data';
 import Images from 'components/Images';
 
 const { rhythm } = typography;
