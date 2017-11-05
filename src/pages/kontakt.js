@@ -115,7 +115,7 @@ const ContactPage = () => (
         </Icon>
       </AddressRow>
       <GoogleMap
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1254144.3368691872!2d17.36302056452942!3d52.12521373024336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045b6eadabc971%3A0xf036a461b8f9b174!2zUk9CU09OIHwgQnJhbXkgZ2FyYcW8b3dlIOKYhSBzcHLEmcW8eW55IGRvIGJyYW0g4piFIGF1dG9tYXR5a2Eg4piFc2Vyd2lzIHwgUm9iZXJ0IE15xZtsacWEc2tp!5e0!3m2!1sen!2spl!4v1509732727241"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2433.7356392287807!2d16.950273316553968!3d52.41146725201791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47045b6eadabc971%3A0xf036a461b8f9b174!2zUk9CU09OIHwgQnJhbXkgZ2FyYcW8b3dlIOKYhSBzcHLEmcW8eW55IGRvIGJyYW0g4piFIGF1dG9tYXR5a2Eg4piFc2Vyd2lzIHwgUm9iZXJ0IE15xZtsacWEc2tp!5e0!3m2!1spl!2spl!4v1509852907185"
         width="100%"
         height="300"
         frameBorder="0"
