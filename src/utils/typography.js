@@ -19,8 +19,21 @@ export default new Typography({
         marginTop: '2.25rem',
         marginBottom: '0.75rem',
       },
+      'h2, .h2': {
+        ...styles.h2,
+        lineHeight: '1.5rem',
+        marginBottom: '1.125rem',
+      },
+      'h3, .h3': {
+        ...styles.h3,
+        lineHeight: '1.5rem',
+        marginBottom: '1.125rem',
+      },
+      '* + p': {
+        marginTop: '1.125rem',
+      },
       p: {
-        marginBottom: '1.35rem',
+        marginBottom: 0,
       },
       [MIN_TABLET_MEDIA_QUERY]: {
         html: {

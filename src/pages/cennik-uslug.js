@@ -83,7 +83,7 @@ PricingPage.propTypes = {
 export default PricingPage;
 
 export const query = graphql`
-  query PricingPageQuery {
+  query ServicesPricingPageQuery {
     smilingMan: imageSharp(
       id: { regex: "/usmiechniety-mezczyzna-ze-szlifierka-katowa/" }
     ) {
