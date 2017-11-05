@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'gatsby-link';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { MAX_WIDTH_PX } from 'utils/layout';
@@ -166,6 +167,8 @@ const StyledCatalog = styled(Catalog)`
   `};
 `;
 
+const StyledPageCatalog = StyledCatalog.withComponent(Link);
+
 const CatalogListing = styled.div`
   margin: ${rhythm(3)} 0 0;
 `;
@@ -186,6 +189,14 @@ const PricingPage = ({ data }) => (
   <PageWrapper>
     <Title>Cenniki</Title>
     <ServicesPriceList>
+      <CatalogListing>
+        <StyledPageCatalog to="/cennik-uslug">
+          <Image imageData={data.robsonPricing} alt="" />
+          <RightColumn>
+            <h3>Cennik usług ROBSON Robert Myśliński</h3>
+          </RightColumn>
+        </StyledPageCatalog>
+      </CatalogListing>
       <CatalogListing>
         <ListingTitle>Cenniki automatyki do bram, szlabanów</ListingTitle>
         {pricingCatalogs[0].map(catalog => (
@@ -294,6 +305,11 @@ export const query = graphql`
     cameTurnstile: imageSharp(
       id: { regex: "/okladka-cennika-automatyki-przejscia-came/" }
     ) {
+      sizes(maxWidth: 213) {
+        ...GatsbyImageSharpSizes_tracedSVG
+      }
+    }
+    robsonPricing: imageSharp(id: { regex: "/cennik-uslug-robson/" }) {
       sizes(maxWidth: 213) {
         ...GatsbyImageSharpSizes_tracedSVG
       }
