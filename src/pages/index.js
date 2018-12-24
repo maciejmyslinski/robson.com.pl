@@ -38,7 +38,7 @@ const Header = styled.h2.attrs({
 
 const Description = styled.p`
   text-align: center;
-  padding: 0 ${rhythm(0.5)};
+  margin: 0 0 ${rhythm(0.5)};
   max-width: 32rem;
 
   ${media.greaterThan('medium')`
@@ -84,6 +84,7 @@ const CTA = styled(Link)`
 const Incentive = styled.p`
   text-align: center;
   ${scale(-0.2999)};
+  margin-top: ${rhythm(0.3)};
   display: table-caption;
   caption-side: bottom;
 `;
