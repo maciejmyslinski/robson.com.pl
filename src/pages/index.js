@@ -7,25 +7,12 @@ import typography from 'utils/typography';
 import media from 'utils/mediaQueries';
 import ResponsiveImage from 'components/Image';
 import Images from 'components/Images';
+import { Container } from 'components/Container/Container';
 import { CHAMBRAY } from 'utils/colors';
-import { MAX_WIDTH_PX } from 'utils/layout';
 import { featureFlags } from 'utils/featureFlags';
 
 const { rhythm, scale } = typography;
 const BUTTON_BG_COLOR = CHAMBRAY;
-
-const Container = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  margin: ${rhythm(1)} auto ${rhythm(3)};
-  padding: 0 ${rhythm(1)};
-  max-width: ${MAX_WIDTH_PX};
-
-  ${media.greaterThan('medium')`
-    margin: ${rhythm(5)} auto;
-  `};
-`;
 
 const FirstHeader = styled.h1`
   text-align: center;

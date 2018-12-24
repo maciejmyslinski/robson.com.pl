@@ -115,7 +115,7 @@ const TemplateWrapper = ({ data, children }) => (
         <p>
           Ta strona używa plików cookies.<br />
           Korzystając ze strony akceptujesz{' '}
-          <FooterLink to="/regulamin">regulamin strony</FooterLink>.<br />
+          <FooterLink to="/regulamin">politykę prywatności</FooterLink>.<br />
           Copyright © 2017 ROBSON Robert Myśliński
         </p>
       </FooterInner>
