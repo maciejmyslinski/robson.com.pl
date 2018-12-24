@@ -1,5 +1,18 @@
 import React from 'react';
-import { Container } from 'components/Container/Container';
+import styled from 'styled-components';
+import typography from 'utils/typography';
+import { MAX_WIDTH_PX } from 'utils/layout';
+
+const { rhythm } = typography;
+
+const Container = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: ${rhythm(1)} auto ${rhythm(3)};
+  padding: 0 ${rhythm(1)};
+  max-width: ${MAX_WIDTH_PX};
+`;
 
 const COMPANY_NAME = 'ROBSON Robert Myśliński';
 const NIP = '7791551041';
