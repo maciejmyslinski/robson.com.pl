@@ -21,29 +21,24 @@ const MenuElements = styled.div`
   flex-flow: row nowrap;
   background-color: ${BACKGROUND_COLOR};
   height: ${BOTTOM_NAV_HEIGHT};
+  align-self: stretch;
   justify-content: space-around;
   overflow: hidden;
-  ${scale(0)};
+  ${scale(-0.25)};
   z-index: 100;
 
   ${media.greaterThan('medium')`
-    height: ${rhythm(3)};
+    height: auto;
     position: static;
     justify-content: flex-end;
   `};
-
-  @media (min-width: 769px) {
-    height: ${rhythm(3)};
-    position: static;
-    justify-content: flex-end;
-  }
 `;
 
 const TopBar = styled.div`
   display: flex;
   justify-content: center;
   width: 100vw;
-  height: ${rhythm(3)};
+  height: ${rhythm(2.5)};
   background-color: ${BACKGROUND_COLOR};
   overflow: hidden;
 `;
@@ -63,37 +58,39 @@ const Wrapper = styled.div`
 const Logo = styled(Image)`
   margin: 0;
   display: block;
-  height: ${rhythm(2.2)};
+`;
+
+// eslint-disable-next-line no-undef
+const LinkElement = process.env.NODE_ENV === 'test' ? SimpleLink : Link;
+
+const Element = styled(LinkElement).attrs({
+  activeClassName: 'active',
+})`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: ${ACTIVE_COLOR};
+  }
+
+  ${media.greaterThan('medium')`
+    flex: 0 0;
+    padding: 0 ${rhythm(0.5)};
+  `};
 `;
 
 const MainNavbar = props => {
-  const { elements, env, logo } = props;
-  const LinkElement = env === 'gatsby' ? Link : SimpleLink;
-  const Element = styled(LinkElement).attrs({
-    activeClassName: 'active',
-  })`
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    background: transparent;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.15s ease-in-out, background 0.15s ease-in-out;
-
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      color: ${ACTIVE_COLOR};
-    }
-
-    ${media.greaterThan('medium')`
-      flex: 0 0;
-      padding: 0 ${rhythm(0.5)};
-    `};
-  `;
+  const { elements, logo } = props;
   return (
     <TopBar>
       <Wrapper>
@@ -119,7 +116,6 @@ MainNavbar.propTypes = {
       path: PropTypes.string,
     }),
   ).isRequired,
-  env: PropTypes.oneOf(['gatsby', 'test']),
   logo: PropTypes.shape({
     resolutions: PropTypes.shape({}),
   }).isRequired,
@@ -144,7 +140,6 @@ MainNavbar.defaultProps = {
       path: '/kontakt',
     },
   ],
-  env: 'gatsby',
 };
 
 export default MainNavbar;
