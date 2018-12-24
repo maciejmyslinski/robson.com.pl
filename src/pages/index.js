@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { shape } from 'prop-types';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 import { lighten } from 'polished';
@@ -9,6 +9,7 @@ import ResponsiveImage from 'components/Image';
 import Images from 'components/Images';
 import { CHAMBRAY } from 'utils/colors';
 import { MAX_WIDTH_PX } from 'utils/layout';
+import { featureFlags } from 'utils/featureFlags';
 
 const { rhythm, scale } = typography;
 const BUTTON_BG_COLOR = CHAMBRAY;
@@ -135,6 +136,88 @@ const ClientsList = styled.div`
   `};
 `;
 
+const CompanyGuide = ({ data }) => {
+  if (featureFlags.choosingComanyGuide) {
+    return (
+      <React.Fragment>
+        <Container>
+          <Header>Jak wybrać firmę serwisującą?</Header>
+          <Description>
+            Z naszego poradnika dowiesz się na co zwracać uwagę, o co pytać i
+            czego oczekiwać od firmy serwisującej.
+          </Description>
+          <CtaWrapper>
+            <CTA to="/sprezyny-do-bram">Pobierz poradnik</CTA>
+          </CtaWrapper>
+        </Container>
+        <Images
+          images={[
+            {
+              ...data.twoServiecman,
+              alt:
+                'Dwóch serwisantów naprawiających siłownik podziemny firmy Nice',
+            },
+            {
+              ...data.modernHouse,
+              alt: 'Nowoczesny dom z bramą Nice',
+            },
+          ]}
+        />
+      </React.Fragment>
+    );
+  }
+  return null;
+};
+
+CompanyGuide.propTypes = {
+  data: shape({
+    twoServiecman: shape({}).isRequired,
+    modernHouse: shape({}).isRequired,
+  }).isRequired,
+};
+
+const SpringsGuide = ({ data }) => {
+  if (featureFlags.buyingSpringsGuide) {
+    return (
+      <React.Fragment>
+        <Container>
+          <Header>
+            Wszystko, co powinieneś wiedzieć zanim kupisz sprężyny do bramy
+          </Header>
+          <Description>
+            Sprężyny do bramy to zakup na całe lata. Z tego poradnika dowiesz
+            się na co zwrócić uwagę, żebyś podjął najlepszą decyzję przy ich
+            zakupie.
+          </Description>
+          <CtaWrapper>
+            <CTA to="/sprezyny-do-bram">Pobierz poradnik</CTA>
+          </CtaWrapper>
+        </Container>
+        <Images
+          images={[
+            {
+              ...data.twoRollingGrilles,
+              alt: 'Dwie bramy rolowane przy stromej ulicy',
+            },
+            {
+              ...data.metalWingGate,
+              alt: 'Metalowa brama skrzydłowa z automatyką Nice',
+            },
+          ]}
+        />
+      </React.Fragment>
+    );
+  }
+  return null;
+};
+
+SpringsGuide.propTypes = {
+  data: shape({
+    twoRollingGrilles: shape({}).isRequired,
+    metalWingGate: shape({}).isRequired,
+  }).isRequired,
+};
+
 const IndexPage = ({ data }) => (
   <div>
     <Container>
@@ -184,28 +267,7 @@ const IndexPage = ({ data }) => (
         },
       ]}
     />
-    <Container>
-      <Header>Jak wybrać firmę serwisującą?</Header>
-      <Description>
-        Z naszego poradnika dowiesz się na co zwracać uwagę, o co pytać i czego
-        oczekiwać od firmy serwisującej.
-      </Description>
-      <CtaWrapper>
-        <CTA to="/sprezyny-do-bram">Pobierz poradnik</CTA>
-      </CtaWrapper>
-    </Container>
-    <Images
-      images={[
-        {
-          ...data.twoServiecman,
-          alt: 'Dwóch serwisantów naprawiających siłownik podziemny firmy Nice',
-        },
-        {
-          ...data.modernHouse,
-          alt: 'Nowoczesny dom z bramą Nice',
-        },
-      ]}
-    />
+    <CompanyGuide data={data} />
     <Container>
       <Header>Co współpraca z nami będzie oznaczała dla Ciebie</Header>
       <BenefitTitle>Poczujesz prawdziwą satysfakcję</BenefitTitle>
@@ -238,6 +300,7 @@ const IndexPage = ({ data }) => (
         },
       ]}
     />
+    <SpringsGuide data={data} />
     <Container>
       <Header>Dlaczego możesz nam zufać?</Header>
       <BenefitTitle>Ponad 20 lat doświadczenia</BenefitTitle>
@@ -262,30 +325,6 @@ const IndexPage = ({ data }) => (
         {
           ...data.modernHouseWithTwoGates,
           alt: 'Nowoczesny dom jednorodzinny z dwoma bramami garażowymi',
-        },
-      ]}
-    />
-    <Container>
-      <Header>
-        Wszystko, co powinieneś wiedzieć zanim kupisz sprężyny do bramy
-      </Header>
-      <Description>
-        Sprężyny do bramy to zakup na całe lata. Z tego poradnika dowiesz się na
-        co zwrócić uwagę, żebyś podjął najlepszą decyzję przy ich zakupie.
-      </Description>
-      <CtaWrapper>
-        <CTA to="/sprezyny-do-bram">Pobierz poradnik</CTA>
-      </CtaWrapper>
-    </Container>
-    <Images
-      images={[
-        {
-          ...data.twoRollingGrilles,
-          alt: 'Dwie bramy rolowane przy stromej ulicy',
-        },
-        {
-          ...data.metalWingGate,
-          alt: 'Metalowa brama skrzydłowa z automatyką Nice',
         },
       ]}
     />
