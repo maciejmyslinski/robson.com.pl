@@ -1,7 +1,0 @@
-# zmienne
-kolor_glowny: &KOLOR_GLOWNY '#424242'
-kolor_pomocniczy: &KOLOR_POMOCNICZY '#355E85'
-
-# ustawienia
-home_page_text: Hello from Robson
-naglowek_tlo: *KOLOR_GLOWNY

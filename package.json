@@ -1,100 +1,39 @@
 {
-  "name": "robson.com.pl",
-  "description": "robson.com.pl",
-  "version": "1.0.0",
-  "author": "Maciej Myśliński <hello@maciejmyslinski.com>",
-  "dependencies": {
-    "@storybook/react": "^3.2.8",
-    "gatsby": "^1.8.12",
-    "gatsby-image": "^1.0.14",
-    "gatsby-link": "^1.6.8",
-    "gatsby-plugin-react-helmet": "^1.0.3",
-    "gatsby-plugin-styled-components": "^1.0.3",
-    "gatsby-plugin-typography": "^1.7.10",
-    "gatsby-source-filesystem": "^1.5.5",
-    "polished": "^1.7.0",
-    "react-copy-to-clipboard": "^5.0.1",
-    "react-typography": "^0.16.5",
-    "styled-components": "2.2.0",
-    "styled-media-query": "^2.0.1",
-    "typography": "^0.16.6",
-    "typography-breakpoint-constants": "^0.15.10",
-    "uuid": "^3.1.0"
-  },
+  "name": "gatsby-starter-default",
   "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "dependencies": {
+    "gatsby": "^2.1.4",
+    "gatsby-image": "^2.0.29",
+    "gatsby-plugin-manifest": "^2.0.17",
+    "gatsby-plugin-offline": "^2.0.23",
+    "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-sharp": "^2.0.20",
+    "gatsby-source-filesystem": "^2.0.20",
+    "gatsby-transformer-sharp": "^2.1.13",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
+    "react-helmet": "^5.2.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "jest ./src",
-    "storybook": "export NODE_PATH=src && start-storybook -p 9001 -c .storybook",
-    "build-storybook": "export NODE_PATH=src && build-storybook -c .storybook -o public",
-    "lint": "yarn eslint 'src/**/*.js'",
-    "format": "yarn lint --fix",
-    "browser-sync": "browser-sync start --s public",
-    "precommit": "lint-staged"
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
-  "lint-staged": {
-    "src/**/*.js": [
-      "format",
-      "git add"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
   },
-  "babel": {
-    "presets": [
-      "env",
-      "react"
-    ],
-    "env": {
-      "test": {
-        "presets": [
-          "env",
-          "react",
-          "stage-3"
-        ]
-      }
-    }
-  },
-  "devDependencies": {
-    "babel-eslint": "8.0.1",
-    "babel-jest": "^21.0.2",
-    "babel-preset-stage-3": "^6.24.1",
-    "browser-sync": "^2.18.13",
-    "enzyme": "^2.9.1",
-    "enzyme-to-json": "^1.6.0",
-    "eslint": "4.9.0",
-    "eslint-config-last": "0.0.3",
-    "eslint-config-prettier": "2.6.0",
-    "eslint-plugin-jest": "^21.1.0",
-    "eslint-plugin-prettier": "2.3.1",
-    "eslint-plugin-react": "7.4.0",
-    "firebase-tools": "^3.9.2",
-    "gatsby-plugin-sharp": "^1.6.10",
-    "gatsby-transformer-sharp": "^1.6.12",
-    "husky": "^0.14.3",
-    "jest": "^21.1.0",
-    "lint-staged": "^4.3.0",
-    "prettier": "1.7.4",
-    "react-addons-test-utils": "^15.6.0",
-    "react-dom": "^15.6.1",
-    "react-test-renderer": "^15.6.1"
-  },
-  "jest": {
-    "setupFiles": [
-      "./test/jestsetup.js"
-    ],
-    "transform": {
-      ".*": "babel-jest"
-    },
-    "snapshotSerializers": [
-      "<rootDir>/node_modules/enzyme-to-json/serializer"
-    ],
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|svg)$": "<rootDir>/test/fileMock.js"
-    },
-    "moduleDirectories": [
-      "node_modules",
-      "src"
-    ]
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
