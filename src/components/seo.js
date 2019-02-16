@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 
 function SEO({ description, lang, meta, keywords, title }) {
+  const metaDescription = description || 'default description';
   return (
     <Helmet
       htmlAttributes={{
