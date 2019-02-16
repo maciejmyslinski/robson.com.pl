@@ -5,7 +5,16 @@
   "version": "0.1.0",
   "author": "Maciej Myśliński <hello@maciejmyslinski.com>",
   "dependencies": {
+    "babel-eslint": "^10.0.1",
     "babel-plugin-styled-components": "^1.10.0",
+    "eslint": "^5.14.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-config-standard-react": "^7.0.2",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "gatsby": "^2.1.4",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-manifest": "^2.0.17",
@@ -15,6 +24,8 @@
     "gatsby-plugin-styled-components": "^3.0.5",
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-sharp": "^2.1.13",
+    "prettier": "^1.16.4",
+    "prettier-eslint-cli": "^4.7.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
@@ -26,6 +37,7 @@
     "develop": "gatsby develop",
     "start": "npm run develop",
     "serve": "gatsby serve",
+    "lint": "prettier-eslint src/**/*.js --write",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   }
 }
