@@ -4857,9 +4857,9 @@ fastparse@^1.1.1:
   resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
   integrity sha512-483XLLxTVIwWK3QTrMGRqUfUpoOs/0hbQrl2oz4J0pAcm3A3bu84wxTFqGqkJzewCLdME38xJLJAxBABfQT8sQ==
 
-"favicons-webpack-plugin@git+https://github.com/Creatiwity/favicons-webpack-plugin.git#f262255febeeca348bf7ae5cc140e0386c074e2c":
+"favicons-webpack-plugin@https://github.com/Creatiwity/favicons-webpack-plugin.git#f262255febeeca348bf7ae5cc140e0386c074e2c":
   version "0.0.9"
-  resolved "git+https://github.com/Creatiwity/favicons-webpack-plugin.git#f262255febeeca348bf7ae5cc140e0386c074e2c"
+  resolved "https://github.com/Creatiwity/favicons-webpack-plugin.git#f262255febeeca348bf7ae5cc140e0386c074e2c"
   dependencies:
     core-js "^2.5.7"
     favicons "^5.1.1"
@@ -5481,6 +5481,14 @@ gatsby-plugin-styled-components@^3.0.5:
   integrity sha512-m0Dvb4THs7QH3tcFJdmiqsnLYQTamvjzyTGMScDi1PtxyD7Z3ixQgwNjAK9Z+tFeE/TCm4JN/Vwm4jlnqB2AvQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
+
+gatsby-plugin-web-font-loader@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-web-font-loader/-/gatsby-plugin-web-font-loader-1.0.4.tgz#c50bdb0c1980110b3fd213a5be70feb2459514c3"
+  integrity sha512-3c39bX9CcsYJQFhhmTyjuMJSqpld2rX+HsTOxP9k1PKFR4Rvo3lpzBW4d1tVpmUesR8BNL6u9eHT7/XksS1iog==
+  dependencies:
+    babel-runtime "^6.26.0"
+    webfontloader "^1.6.28"
 
 gatsby-react-router-scroll@^2.0.4:
   version "2.0.4"
@@ -12111,6 +12119,11 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
+
+webfontloader@^1.6.28:
+  version "1.6.28"
+  resolved "https://registry.yarnpkg.com/webfontloader/-/webfontloader-1.6.28.tgz#db786129253cb6e8eae54c2fb05f870af6675bae"
+  integrity sha1-23hhKSU8tujq5UwvsF+HCvZnW64=
 
 webpack-dev-middleware@3.4.0:
   version "3.4.0"

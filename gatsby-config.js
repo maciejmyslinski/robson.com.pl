@@ -17,5 +17,13 @@ module.exports = {
         logo: `images/favicon.png`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Muli:latin-ext', 'Playfair Display:700:latin-ext'],
+        },
+      },
+    },
   ],
 }
