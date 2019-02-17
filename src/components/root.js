@@ -6,6 +6,12 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 
+const Wrapper = styled.div`
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px;
+`
+
 const GlobalStyle = createGlobalStyle`
   ${reset}
   body, html {
@@ -13,6 +19,8 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
     overflow-x: hidden;
+    font-family: 'Muli', sans-serif;
+    line-height: 1.3;
   }
 
   *, *:before, *:after {
@@ -40,10 +48,6 @@ const logoRender = data => {
   )
 }
 
-const Nav = styled.nav`
-  font-family: 'Muli', sans-serif;
-`
-
 const Ul = styled.ul`
   display: flex;
 `
@@ -64,17 +68,39 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  max-width: 960px;
-  margin: 0 auto;
+  padding: 24px 0;
+`
+
+const Footer = styled.footer`
+  border: solid 2px #000;
+  padding: 24px;
+  margin: 24px 0;
+  display: grid;
+  grid-template-areas:
+    'address  contact'
+    'copyright copyright';
+  grid-column-gap: 45px;
+  grid-row-gap: 50px;
+`
+
+const Address = styled.div`
+  grid-area: address;
+`
+
+const Contact = styled.div`
+  grid-area: contact;
+`
+
+const Copyright = styled.div`
+  grid-area: copyright;
 `
 
 export const Root = ({ children }) => (
-  <>
+  <Wrapper>
     <GlobalStyle />
     <Header>
       <StaticQuery query={logoQuery} render={logoRender} />
-      <Nav>
+      <nav>
         <Ul>
           <li>
             <StyledLink to='/serwis'>Serwis</StyledLink>
@@ -89,10 +115,25 @@ export const Root = ({ children }) => (
             <StyledLink to='/kontakt'>Kontakt</StyledLink>
           </li>
         </Ul>
-      </Nav>
+      </nav>
     </Header>
     <main>{children}</main>
-  </>
+    <Footer>
+      <Address>
+        ROBSON Robert Myśliński
+        <br />
+        ul. Ostrówek 10/11
+        <br />
+        61-122 Poznań
+      </Address>
+      <Contact>
+        602 338 508
+        <br />
+        biuro@robson.com.pl
+      </Contact>
+      <Copyright>Copyright Ⓒ 2019 ROBSON Robert Myśliński</Copyright>
+    </Footer>
+  </Wrapper>
 )
 Root.propTypes = {
   children: PropTypes.node.isRequired,
