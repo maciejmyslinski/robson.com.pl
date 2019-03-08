@@ -19,12 +19,16 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     box-sizing: border-box;
     overflow-x: hidden;
-    font-family: 'Muli', sans-serif;
+    font-family: 'Open Sans', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
     line-height: 1.3;
   }
 
   *, *:before, *:after {
     box-sizing: inherit;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
   }
 `
 

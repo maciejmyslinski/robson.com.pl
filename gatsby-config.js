@@ -21,7 +21,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Muli:latin-ext', 'Playfair Display:700:latin-ext'],
+          families: ['Open Sans:400,700:latin-ext', 'Merriweather:700:latin-ext'],
         },
       },
     },
