@@ -20,17 +20,21 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     overflow-x: hidden;
     font-family: 'Open Sans', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
-    line-height: 1.3;
+    line-height: 1.4;
     font-size: 62.5%;
   }
 
-  *:not(body):not(html), *:before, *:after {
+  *, *:before, *:after {
     box-sizing: inherit;
+  }
+
+  body > * {
     font-size: 1.6rem;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Merriweather', serif;
+    font-weight: 700;
   }
 `
 
@@ -78,14 +82,26 @@ const Header = styled.div`
 `
 
 const Footer = styled.footer`
-  padding: 24px;
-  margin-top: 24px;
+  padding: 2.4rem;
+  margin-top: 2.4rem;
   display: grid;
   grid-template-areas:
-    'address  contact'
-    'copyright copyright';
-  grid-column-gap: 45px;
-  grid-row-gap: 50px;
+    'address'
+    'numbers'
+    'contact'
+    'legal'
+    'copyright';
+  grid-column-gap: 3.2rem;
+  grid-row-gap: 4.8rem;
+  background-color: #102a43;
+  color: #d9e2ec;
+  font-size: 1.4rem;
+
+  @media (min-width: 40em) {
+    grid-template-areas:
+      'address address numbers numbers contact contact'
+      'copyright copyright copyright legal legal legal';
+  }
 `
 
 const Address = styled.div`
@@ -131,7 +147,7 @@ export const Root = ({ children }) => (
           <br />
           Poniedziałek - Piątek: 8 - 16
         </Address>
-        <div>
+        <div style={{ gridArea: 'numbers' }}>
           NIP: 779 155 10 41
           <br />
           REGON: 630781580
@@ -144,7 +160,9 @@ export const Root = ({ children }) => (
           biuro@robson.com.pl
         </Contact>
         <Copyright>Copyright Ⓒ 2019 ROBSON Robert Myśliński</Copyright>
-        <p>Korzystanie z serwisu oznacza akceptację regulaminu</p>
+        <p style={{ gridArea: 'legal' }}>
+          Korzystanie z serwisu oznacza akceptację regulaminu
+        </p>
       </Footer>
     </Wrapper>
   </Styling>
