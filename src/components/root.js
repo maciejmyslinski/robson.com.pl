@@ -5,11 +5,11 @@ import { createGlobalStyle } from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { Styling } from 'components/styling'
 
 const Wrapper = styled.div`
-  max-width: 960px;
+  max-width: ${({ theme }) => theme.spacing[16]};
   margin: 0 auto;
-  padding: 12px;
 `
 
 const GlobalStyle = createGlobalStyle`
@@ -21,10 +21,12 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     font-family: 'Open Sans', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
     line-height: 1.3;
+    font-size: 62.5%;
   }
 
-  *, *:before, *:after {
+  *:not(body):not(html), *:before, *:after {
     box-sizing: inherit;
+    font-size: 1.6rem;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -72,13 +74,12 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 0;
+  padding: 0;
 `
 
 const Footer = styled.footer`
-  border: solid 2px #000;
   padding: 24px;
-  margin: 24px 0;
+  margin-top: 24px;
   display: grid;
   grid-template-areas:
     'address  contact'
@@ -100,44 +101,53 @@ const Copyright = styled.div`
 `
 
 export const Root = ({ children }) => (
-  <Wrapper>
-    <GlobalStyle />
-    <Header>
-      <StaticQuery query={logoQuery} render={logoRender} />
-      <nav>
-        <Ul>
-          <li>
-            <StyledLink to='/serwis'>Serwis</StyledLink>
-          </li>
-          <li>
-            <StyledLink to='/sprezyny-do-bram'>Sprężyny</StyledLink>
-          </li>
-          <li>
-            <StyledLink to='/cenniki'>Cenniki</StyledLink>
-          </li>
-          <li>
-            <StyledLink to='/kontakt'>Kontakt</StyledLink>
-          </li>
-        </Ul>
-      </nav>
-    </Header>
-    <main>{children}</main>
-    <Footer>
-      <Address>
-        ROBSON Robert Myśliński
-        <br />
-        ul. Ostrówek 10/11
-        <br />
-        61-122 Poznań
-      </Address>
-      <Contact>
-        602 338 508
-        <br />
-        biuro@robson.com.pl
-      </Contact>
-      <Copyright>Copyright Ⓒ 2019 ROBSON Robert Myśliński</Copyright>
-    </Footer>
-  </Wrapper>
+  <Styling>
+    <Wrapper>
+      <GlobalStyle />
+      <Header>
+        <StaticQuery query={logoQuery} render={logoRender} />
+        <nav>
+          <Ul>
+            <li>
+              <StyledLink to='/serwis'>Serwis</StyledLink>
+            </li>
+            <li>
+              <StyledLink to='/sprezyny-do-bram'>Sprężyny</StyledLink>
+            </li>
+            <li>
+              <StyledLink to='/cenniki'>Cenniki</StyledLink>
+            </li>
+          </Ul>
+        </nav>
+      </Header>
+      <main>{children}</main>
+      <Footer>
+        <Address>
+          ROBSON Robert Myśliński
+          <br />
+          ul. Ostrówek 10/11
+          <br />
+          61-122 Poznań
+          <br />
+          Poniedziałek - Piątek: 8 - 16
+        </Address>
+        <div>
+          NIP: 779 155 10 41
+          <br />
+          REGON: 630781580
+          <br />
+          Numer konta: 43 1020 4027 0000 1802 1345 1515
+        </div>
+        <Contact>
+          602 338 508
+          <br />
+          biuro@robson.com.pl
+        </Contact>
+        <Copyright>Copyright Ⓒ 2019 ROBSON Robert Myśliński</Copyright>
+        <p>Korzystanie z serwisu oznacza akceptację regulaminu</p>
+      </Footer>
+    </Wrapper>
+  </Styling>
 )
 Root.propTypes = {
   children: PropTypes.node.isRequired,
