@@ -1,18 +1,75 @@
 import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Root } from 'components/root'
-import chevronRight from 'images/chevron-right.svg'
+
+const space = index => ({ theme: { spacing } }) => spacing[index]
+const remToEm = value => `${value / 1.6}em`
+const fontSize = index => ({ theme: { fontSizes } }) => fontSizes[index]
+const lockFormula = (from, to) => {
+  const diff = (aSelector, bSelector) => theme => {
+    const toUnitless = x => (x.endsWith('rem') ? x.slice(0, x.length - 3) : x)
+    const toNumber = x => {
+      const result = Number(x)
+      if (Number.isNaN(result)) {
+        return x
+      }
+      return result
+    }
+    const a = aSelector(theme)
+    const b = bSelector(theme)
+    const aUnitless = toUnitless(a)
+    const bUnitless = toUnitless(b)
+    const aNumber = toNumber(aUnitless)
+    const bNumber = toNumber(bUnitless)
+    return aNumber - bNumber
+  }
+
+  return css`calc(${from[1]} + ${diff(to[1], from[1])} * (100vw - ${
+    from[0]
+  }rem) / (${to[0]} - ${from[0]}))`
+}
+
+const lock = (property, from, to) => {
+  const mobile = css`
+    ${property}: ${from[1]};
+  `
+
+  const inBetween = css`
+    @media (min-width: ${remToEm(from[0])}) {
+      ${property}: ${lockFormula(from, to)};
+    }
+  `
+
+  const desktop = css`
+    @media (min-width: ${remToEm(to[0])}) {
+      ${property}: ${to[1]}
+    }
+  `
+
+  return css`${mobile}${inBetween}${desktop}`
+}
 
 const HeroWrapper = styled.div`
   position: relative;
-  padding: ${({ theme }) => `${theme.spacing[7]} ${theme.spacing[2]}`};
+  padding-right: ${space(2)};
+  padding-left: ${space(2)};
   text-align: center;
+  display: grid;
+  grid-template:
+    'heading'
+    '.' ${space(2)}
+    'supporting-text'
+    '.' ${space(6)}
+    'cta';
+
+  ${lock('padding-top', [32, space(7)], [96, space(10)])}
+  ${lock('padding-bottom', [32, space(7)], [96, space(10)])}
 `
 
 const H1 = styled.h1`
-  font-size: ${({ theme }) => theme.fontSizes[5]};
+  ${lock('font-size', [32, fontSize(5)], [96, fontSize(7)])}
 `
 
 const Thumbnails = styled.section`
@@ -40,19 +97,15 @@ const Button = styled(Link)`
   display: inline-block;
   position: relative;
   text-decoration: none;
-  color: ${({ theme }) => theme.colors.neutrals['900']};
-  padding: ${({ theme }) =>
-    `${theme.spacing[2]} 6rem ${theme.spacing[2]} ${theme.spacing[2]}`};
+  color: ${({ theme }) => theme.colors.secondary['900']};
+  padding: ${({ theme }) => `${theme.spacing[2]} ${theme.spacing[3]}`};
   background-color: ${({ theme }) => theme.colors.secondary['400']};
+  box-shadow: ${({ theme }) => `${theme.levels[0]}, ${theme.levels[2]}`};
+  font-weight: 700;
+  transition: box-shadow 200ms ease-out;
 
-  &::after {
-    content: '';
-    width: 4.6rem;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: center no-repeat url(${chevronRight}), #de911d;
+  &:hover {
+    box-shadow: ${({ theme }) => `${theme.levels[4]}`};
   }
 `
 
@@ -106,8 +159,12 @@ const IndexPage = () => {
           fluid={data.heroImage.childImageSharp.fluid}
         />
         <H1>Wszystko, czego potrzebuje Twoja brama</H1>
-        <p>nasze motto: zadowolony klient</p>
-        <Button to='/serwis'>wezwij serwis</Button>
+        <p style={{ gridArea: 'supporting-text' }}>
+          nasze motto: zadowolony klient
+        </p>
+        <div style={{ gridArea: 'cta' }}>
+          <Button to='/serwis'>wezwij serwis</Button>
+        </div>
       </HeroWrapper>
       <Thumbnails>
         <Thumbnail img={data.homeImage.childImageSharp.fixed}>

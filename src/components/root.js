@@ -84,6 +84,12 @@ const Header = styled.div`
 const Footer = styled.footer`
   padding: 2.4rem;
   margin-top: 2.4rem;
+  background-color: #102a43;
+  color: #d9e2ec;
+  font-size: 1.4rem;
+`
+
+const FooterLayout = styled.div`
   display: grid;
   grid-template-areas:
     'address'
@@ -93,9 +99,6 @@ const Footer = styled.footer`
     'copyright';
   grid-column-gap: 3.2rem;
   grid-row-gap: 4.8rem;
-  background-color: #102a43;
-  color: #d9e2ec;
-  font-size: 1.4rem;
 
   @media (min-width: 40em) {
     grid-template-areas:
@@ -118,7 +121,6 @@ const Copyright = styled.div`
 
 export const Root = ({ children }) => (
   <Styling>
-    <Wrapper>
       <GlobalStyle />
       <Header>
         <StaticQuery query={logoQuery} render={logoRender} />
@@ -136,35 +138,38 @@ export const Root = ({ children }) => (
           </Ul>
         </nav>
       </Header>
-      <main>{children}</main>
-      <Footer>
-        <Address>
-          ROBSON Robert Myśliński
-          <br />
-          ul. Ostrówek 10/11
-          <br />
-          61-122 Poznań
-          <br />
-          Poniedziałek - Piątek: 8 - 16
-        </Address>
-        <div style={{ gridArea: 'numbers' }}>
-          NIP: 779 155 10 41
-          <br />
-          REGON: 630781580
-          <br />
-          Numer konta: 43 1020 4027 0000 1802 1345 1515
-        </div>
-        <Contact>
-          602 338 508
-          <br />
-          biuro@robson.com.pl
-        </Contact>
-        <Copyright>Copyright Ⓒ 2019 ROBSON Robert Myśliński</Copyright>
-        <p style={{ gridArea: 'legal' }}>
-          Korzystanie z serwisu oznacza akceptację regulaminu
-        </p>
-      </Footer>
-    </Wrapper>
+    <main>{children}</main>
+    <Footer>
+      <Wrapper>
+        <FooterLayout>
+          <Address>
+            ROBSON Robert Myśliński
+            <br />
+            ul. Ostrówek 10/11
+            <br />
+            61-122 Poznań
+            <br />
+            Poniedziałek - Piątek: 8 - 16
+          </Address>
+          <div style={{ gridArea: 'numbers' }}>
+            NIP: 779 155 10 41
+            <br />
+            REGON: 630781580
+            <br />
+            Numer konta: 43 1020 4027 0000 1802 1345 1515
+          </div>
+          <Contact>
+            602 338 508
+            <br />
+            biuro@robson.com.pl
+          </Contact>
+          <Copyright>Copyright Ⓒ 2019 ROBSON Robert Myśliński</Copyright>
+          <p style={{ gridArea: 'legal', textAlign: 'right' }}>
+            Korzystanie z serwisu oznacza akceptację regulaminu
+          </p>
+        </FooterLayout>
+      </Wrapper>
+    </Footer>
   </Styling>
 )
 Root.propTypes = {

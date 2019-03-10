@@ -43,14 +43,26 @@ const theme = {
 
   colors: {
     secondary: {
-      '400': 'hsla(44, 92%, 63%, 1)'
+      '900': 'hsla(15, 86%, 30%, 1)',
+      '500': 'hsla(42, 87%, 55%, 1)',
+      '400': 'hsla(44, 92%, 63%, 1)',
     },
     neutrals: {
       '900': 'hsla(209, 61%, 16%, 1)',
     },
   },
+
+  levels: [
+    '0 0.1rem 0.3rem hsla(0, 0%, 0%, 0.2)',
+    '0 0.4rem 0.6rem hsla(0, 0%, 0%, 0.2)',
+    '0 0.5rem 1.5rem hsla(0, 0%, 0%, 0.2)',
+    '0 1.0rem 2.4rem hsla(0, 0%, 0%, 0.2)',
+    '0 1.5rem 3.5rem hsla(0, 0%, 0%, 0.2)',
+  ],
 }
 
 export const Styling = ({ children }) => (
-  <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  <ThemeProvider theme={theme}>
+    <div>{children}</div>
+  </ThemeProvider>
 )
