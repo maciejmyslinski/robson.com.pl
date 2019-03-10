@@ -215,7 +215,14 @@ const IndexPage = () => {
           zadowolonymi i chętnie nas polecającymi klientami.
         </p>
       </div>
-      <Button to='/serwis'>wezwij serwis</Button>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '9.6rem',
+        }}>
+        <Button to='/serwis'>wezwij serwis</Button>
+      </div>
     </Root>
   )
 }
