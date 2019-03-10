@@ -9,6 +9,8 @@ import { Styling } from 'components/styling'
 import { space } from 'utils/space'
 import { fontSize } from 'utils/fontSize'
 import { color } from 'utils/color'
+import { remToEm } from 'utils/remToEm'
+import { lock } from 'utils/lock'
 
 const Wrapper = styled.div`
   max-width: ${({ theme }) => theme.spacing[16]};
@@ -71,11 +73,12 @@ const Header = styled.div`
 `
 
 const Footer = styled.footer`
-  padding: 2.4rem;
   margin-top: 2.4rem;
   background-color: #102a43;
   color: #d9e2ec;
   font-size: 1.4rem;
+
+  ${lock('padding', [32, space(4)], [96, space(7)])}
 `
 
 const FooterLayout = styled.div`
@@ -106,6 +109,15 @@ const Contact = styled.div`
 
 const Copyright = styled.div`
   grid-area: copyright;
+`
+
+const Legal = styled.div`
+  grid-area: legal;
+  text-align: left;
+
+  @media (min-width: ${remToEm(64)}) {
+    text-align: right;
+  }
 `
 
 export const Root = ({ children }) => {
@@ -168,15 +180,14 @@ export const Root = ({ children }) => {
               biuro@robson.com.pl
             </Contact>
             <Copyright>Copyright Ⓒ 2019 ROBSON Robert Myśliński</Copyright>
-            <p style={{ gridArea: 'legal', textAlign: 'right' }}>
-              Korzystanie z serwisu oznacza akceptację regulaminu
-            </p>
+            <Legal>Korzystanie z serwisu oznacza akceptację regulaminu</Legal>
           </FooterLayout>
         </Wrapper>
       </Footer>
     </Styling>
   )
 }
+
 Root.propTypes = {
   children: PropTypes.node.isRequired,
 }

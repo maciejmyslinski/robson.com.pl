@@ -4,5 +4,5 @@
 - [x] add more space to the header
 - [x] display thumbnail next to each other on desktop
 - [x] center the second cta on the homepage
-- [] add more space to the footer
-- [] footer: align text left on mobile
+- [x] add more space to the footer
+- [x] footer: align text left on mobile
