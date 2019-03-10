@@ -3,8 +3,8 @@ import { graphql, Link, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import { Root } from 'components/root'
+import { space } from 'utils/space'
 
-const space = index => ({ theme: { spacing } }) => spacing[index]
 const remToEm = value => `${value / 1.6}em`
 const fontSize = index => ({ theme: { fontSizes } }) => fontSizes[index]
 const lockFormula = (from, to) => {
