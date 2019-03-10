@@ -74,6 +74,20 @@ const H1 = styled.h1`
 
 const Thumbnails = styled.section`
   margin: ${({ theme }) => `${theme.spacing[7]} ${theme.spacing[2]}`};
+  max-width: ${space(16)};
+  display: grid;
+  grid-template:
+    '1'
+    '2'
+    '3';
+  justify-items: center;
+  margin: ${space(9)} auto;
+  grid-gap: ${space(6)};
+
+  @media (min-width: ${remToEm(98)}) {
+    grid-gap: ${space(2)};
+    grid-template: '1 2 3';
+  }
 `
 
 const ThumbnailWrapper = styled.div`
