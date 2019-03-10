@@ -1,7 +1,7 @@
 - [x] add padding to the logo
 - [x] gray navbar items
 - [x] bold active navbar element
-- [] add more space to the header
+- [x] add more space to the header
 - [] display thumbnail next to each other on desktop
 - [] center the second cta on the homepage
 - [] add more space to the footer

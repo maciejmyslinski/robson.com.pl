@@ -50,7 +50,7 @@ const StyledLink = styled(Link).attrs({ activeClassName: 'active' })`
   color: inherit;
   display: block;
   font-size: ${fontSize(1)};
-  padding: ${space(3)};
+  padding: ${space(4)};
   color: ${color('neutrals', '700')};
 
   &:visited {
@@ -125,15 +125,13 @@ export const Root = ({ children }) => {
     <Styling>
       <GlobalStyle />
       <Header>
-        <Link to='/'>
+        <Link style={{ display: 'flex' }} to='/'>
           <Img fixed={data.logoImage.childImageSharp.fixed} />
         </Link>
         <nav>
           <Ul>
             <li>
-              <StyledLink to='/serwis'>
-                Serwis
-              </StyledLink>
+              <StyledLink to='/serwis'>Serwis</StyledLink>
             </li>
             <li>
               <StyledLink to='/sprezyny-do-bram'>Sprężyny</StyledLink>
