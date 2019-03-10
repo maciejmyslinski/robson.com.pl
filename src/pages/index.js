@@ -4,9 +4,9 @@ import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 import { Root } from 'components/root'
 import { space } from 'utils/space'
+import { fontSize } from 'utils/fontSize'
 
 const remToEm = value => `${value / 1.6}em`
-const fontSize = index => ({ theme: { fontSizes } }) => fontSizes[index]
 const lockFormula = (from, to) => {
   const diff = (aSelector, bSelector) => theme => {
     const toUnitless = x => (x.endsWith('rem') ? x.slice(0, x.length - 3) : x)

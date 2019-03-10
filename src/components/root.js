@@ -7,6 +7,8 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { Styling } from 'components/styling'
 import { space } from 'utils/space'
+import { fontSize } from 'utils/fontSize'
+import { color } from 'utils/color'
 
 const Wrapper = styled.div`
   max-width: ${({ theme }) => theme.spacing[16]};
@@ -43,15 +45,21 @@ const Ul = styled.ul`
   display: flex;
 `
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(Link).attrs({ activeClassName: 'active' })`
   text-decoration: none;
   color: inherit;
   display: block;
-  font-size: 14px;
-  padding: 14px;
+  font-size: ${fontSize(1)};
+  padding: ${space(3)};
+  color: ${color('neutrals', '700')};
 
   &:visited {
     text-decoration: none;
+  }
+
+  &.active {
+    font-weight: 700;
+    color: ${color('neutrals', '900')};
   }
 `
 
@@ -123,7 +131,9 @@ export const Root = ({ children }) => {
         <nav>
           <Ul>
             <li>
-              <StyledLink to='/serwis'>Serwis</StyledLink>
+              <StyledLink to='/serwis'>
+                Serwis
+              </StyledLink>
             </li>
             <li>
               <StyledLink to='/sprezyny-do-bram'>Sprężyny</StyledLink>
