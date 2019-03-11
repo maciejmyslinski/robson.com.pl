@@ -70,6 +70,11 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 ${space(3)};
+  flex-direction: column;
+
+  @media (min-width: ${remToEm(44)}) {
+    flex-direction: row;
+  }
 `
 
 const Footer = styled.footer`

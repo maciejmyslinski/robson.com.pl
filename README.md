@@ -6,3 +6,4 @@
 - [x] center the second cta on the homepage
 - [x] add more space to the footer
 - [x] footer: align text left on mobile
+- [x] fix navigation on mobile
