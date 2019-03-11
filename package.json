@@ -41,5 +41,8 @@
     "serve": "gatsby serve",
     "lint": "prettier-eslint src/**/*.js --write",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.12.4"
   }
 }

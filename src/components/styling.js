@@ -1,4 +1,5 @@
 import React from 'react'
+import { node } from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
 const theme = {
@@ -68,3 +69,7 @@ export const Styling = ({ children }) => (
     <div>{children}</div>
   </ThemeProvider>
 )
+
+Styling.propTypes = {
+  children: node.isRequired,
+}

@@ -1,7 +1,8 @@
 import React from 'react'
+import { object, node } from 'prop-types'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { Root } from 'components/root'
 import { space } from 'utils/space'
 import { fontSize } from 'utils/fontSize'
@@ -63,6 +64,11 @@ const Thumbnail = ({ img, children }) => (
     <p>{children}</p>
   </ThumbnailWrapper>
 )
+
+Thumbnail.propTypes = {
+  img: object.isRequired,
+  children: node.isRequired,
+}
 
 const Button = styled(Link)`
   display: inline-block;
