@@ -26,6 +26,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open Sans', -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
     line-height: 1.4;
     font-size: 62.5%;
+    color: ${color('neutrals', '900')};
   }
 
   *, *:before, *:after {
@@ -39,6 +40,10 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Merriweather', serif;
     font-weight: 700;
+  }
+
+  b { 
+    font-weight: bold;
   }
 `
 
