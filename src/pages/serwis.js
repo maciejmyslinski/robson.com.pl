@@ -35,7 +35,7 @@ const Button = styled.a`
   color: ${({ theme }) => theme.colors.secondary['900']};
   padding: ${({ theme }) => `${theme.spacing[2]} ${theme.spacing[3]}`};
   background-color: ${({ theme }) => theme.colors.secondary['400']};
-  box-shadow: ${({ theme }) => `${theme.levels[0]}, ${theme.levels[2]}`};
+  box-shadow: ${({ theme }) => `${theme.levels[0]}`};
   font-weight: 700;
   transition: box-shadow 200ms ease-out;
 
@@ -69,7 +69,7 @@ const ContentWrapper = styled.div`
 const ServicePage = () => {
   const data = useStaticQuery(graphql`
     query {
-      heroImage: file(relativePath: { eq: "pexels-photo-209251.jpeg" }) {
+      heroImage: file(relativePath: { eq: "carl-nenzen-loven-43549.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 960) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG

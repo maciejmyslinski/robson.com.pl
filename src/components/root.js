@@ -51,7 +51,7 @@ const Ul = styled.ul`
   display: flex;
 `
 
-const StyledLink = styled(Link).attrs({ activeClassName: 'active' })`
+const NavLink = styled(Link).attrs({ activeClassName: 'active' })`
   text-decoration: none;
   color: inherit;
   display: block;
@@ -67,6 +67,10 @@ const StyledLink = styled(Link).attrs({ activeClassName: 'active' })`
     font-weight: 700;
     color: ${color('neutrals', '900')};
   }
+`
+
+const FooterLink = styled.a`
+  color: ${color(`neutrals`, `100`)};
 `
 
 const Header = styled.div`
@@ -152,13 +156,13 @@ export const Root = ({ children }) => {
         <nav>
           <Ul>
             <li>
-              <StyledLink to='/serwis'>Serwis</StyledLink>
+              <NavLink to='/serwis'>Serwis</NavLink>
             </li>
             <li>
-              <StyledLink to='/sprezyny-do-bram'>Sprężyny</StyledLink>
+              <NavLink to='/sprezyny-do-bram'>Sprężyny</NavLink>
             </li>
             <li>
-              <StyledLink to='/cenniki'>Cenniki</StyledLink>
+              <NavLink to='/cenniki'>Cenniki</NavLink>
             </li>
           </Ul>
         </nav>
@@ -184,12 +188,19 @@ export const Root = ({ children }) => {
               Numer konta: 43 1020 4027 0000 1802 1345 1515
             </div>
             <Contact>
-              602 338 508
+              <FooterLink href='tel:602338508'>602 338 508</FooterLink>
               <br />
-              biuro@robson.com.pl
+              <FooterLink href='mailto:biuro@robson.com.pl'>
+                biuro@robson.com.pl
+              </FooterLink>
             </Contact>
             <Copyright>Copyright Ⓒ 2019 ROBSON Robert Myśliński</Copyright>
-            <Legal>Korzystanie z serwisu oznacza akceptację regulaminu</Legal>
+            <Legal>
+              Korzystanie z serwisu oznacza akceptację{' '}
+              <FooterLink as={Link} to='/regulamin'>
+                regulaminu
+              </FooterLink>
+            </Legal>
           </FooterLayout>
         </Wrapper>
       </Footer>

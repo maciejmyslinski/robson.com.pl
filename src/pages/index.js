@@ -77,7 +77,7 @@ const Button = styled(Link)`
   color: ${({ theme }) => theme.colors.secondary['900']};
   padding: ${({ theme }) => `${theme.spacing[2]} ${theme.spacing[3]}`};
   background-color: ${({ theme }) => theme.colors.secondary['400']};
-  box-shadow: ${({ theme }) => `${theme.levels[0]}, ${theme.levels[2]}`};
+  box-shadow: ${({ theme }) => `${theme.levels[0]}`};
   font-weight: 700;
   transition: box-shadow 200ms ease-out;
 
