@@ -21,8 +21,17 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Open Sans:400,700:latin-ext', 'Merriweather:700:latin-ext'],
+          families: [
+            'Open Sans:400,700:latin-ext',
+            'Merriweather:700:latin-ext',
+          ],
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-57718131-1',
       },
     },
   ],
