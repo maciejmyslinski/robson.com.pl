@@ -1,17 +1,47 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Root } from 'components'
+import { fontSize } from 'utils/fontSize'
+import { space } from 'utils/space'
+
+const Wrapper = styled.div`
+  max-width: ${space(14)};
+  padding: ${space(1)};
+  margin: ${space(4)} auto ${space(7)};
+  display: flex;
+  flex-flow: column nowrap;
+`
+
+const H1 = styled.h1`
+  font-size: ${fontSize(5)};
+  margin: 0 auto ${space(4)};
+`
+
+const H2 = styled.h2`
+  font-size: ${fontSize(4)};
+  margin: ${space(7)} 0 ${space(0)};
+`
+
+const H3 = styled.h3`
+  font-size: ${fontSize(2)};
+  margin: ${space(5)} 0 ${space(0)};
+`
+
+const Price = styled.p`
+  font-style: italic;
+`
 
 const Item = ({ name, price, description }) => (
   <>
-    <h3>{name}</h3>
-    <p>{price}</p>
+    <H3>{name}</H3>
+    <Price>{price}</Price>
     {description && <p>{description}</p>}
   </>
 )
 
 const Info = ({ name, description }) => (
   <>
-    <h3>{name}</h3>
+    <H3>{name}</H3>
     {description.map((paragraph, index) => (
       <p key={index}>{paragraph}</p>
     ))}
@@ -127,13 +157,16 @@ const additionalInfo = [
 export default () => {
   return (
     <Root>
-      <h1>Cennik usług ROBSON Robert Myśliński</h1>
-      {items.map((item, i) => (
-        <Item key={i} {...item} />
-      ))}
-      {additionalInfo.map((info, index) => (
-        <Info key={index} {...info} />
-      ))}
+      <Wrapper>
+        <H1>Cennik usług ROBSON Robert Myśliński</H1>
+        {items.map((item, i) => (
+          <Item key={i} {...item} />
+        ))}
+        <H2>Uwagi dodatkowe</H2>
+        {additionalInfo.map((info, index) => (
+          <Info key={index} {...info} />
+        ))}
+      </Wrapper>
     </Root>
   )
 }
