@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { space } from 'utils/space'
@@ -7,83 +7,46 @@ import { Root } from 'components/root'
 import { remToEm } from 'utils/remToEm'
 import { fontSize } from 'utils/fontSize'
 import { lock } from 'utils/lock'
+import niceGateDoor from 'pdf/cennik-automatyka-do-bram-szlabany-nice.pdf'
+import niceGarage from 'pdf/cennik-bram-garazowych-nice.pdf'
+import krispolHome from 'pdf/cennik-bram-garazowych-krispol.pdf'
+import krispolRollingDoors from 'pdf/cennik-bram-i-krat-rolowanych-krispol.pdf'
 
 const pricingDocs = [
   {
-    to: '#',
+    to: '/cennik-uslug-robson',
     name: 'Cennik usług ROBSON Robert Myśliński',
     description: 'Zapewniamy również miłą obsługę!',
-    img: '#',
+    imageId: 'cennikUslugRobson',
   },
   {
-    to: '#',
+    href: niceGateDoor,
     name: 'Nice GATE & DOOR',
     description:
       'Systemy automatyzacji, sterowania i kontroli bram wjazdowych oraz drzwi garażowych. Szlabany i stystemy parkingowe, systemy kontroli ruchu pieszych, systemy kontroli dostępu, wideodomofony.',
-    img: '#',
+    imageId: 'automatykaNice',
   },
   {
-    to: '#',
-    name: 'Came automatyka wjazdu',
-    description:
-      'Automatyka do bram przesuwnych, skrzydłowych, garażowych. Bariery drogowe, akcesoria sterujące, zabezpieczające, zestawy i kompletacje.',
-    img: '#',
-  },
-  {
-    to: '#',
+    href: niceGarage,
     name: 'Nice bramy dla domu i przemysłu',
     description:
       'Bramy garażowe i przemysłowe firmy Nice. 33 956 kombinacji dostępnych wymiarów, w tym nawet 88 wymiarów standardowych.',
-    img: '#',
+    imageId: 'bramyNice',
+    imageAlt: 'Okładka cennika Nice bramy garażowe',
   },
   {
-    to: '#',
+    href: krispolHome,
     name: 'Krispol bramy dla domu',
     description:
       'Produkty KRISPOL dają całkowitą swobodę wyboru koloru wszystkich elementów stolarki otworowej. Bramy garażowe można dokładnie dopasować do okien, rolet zewnętrznych i drzwi wejściowych.',
-    img: '#',
+    imageId: 'bramyKrispol',
   },
   {
-    to: '#',
-    name: 'Krispol przemysłowe bramy segmentowe',
-    description:
-      'Nieważne, czy mówimy o małym warsztacie, czy o wielkopowierzchniowej hali magazynowej. W przypadku każdej inwestycji tak samo ważne jest, aby stworzyć bezpieczne i komfortowe warunki dla rozwoju biznesu.',
-    img: '#',
-  },
-  {
-    to: '#',
+    href: krispolRollingDoors,
     name: 'Krispol bramy i kraty rolowane',
     description:
       'Główną zaletą bram rolowanych jest ich konstrukcja. Pancerz bramy zwijany jest na wał umieszczony nad otworem, dzięki temu przestrzeń pod sufitem hali pozostaje wolna. To ważne, gdy kluczowa jest wysokość pomieszczeń.',
-    img: '#',
-  },
-  {
-    to: '#',
-    name: 'NicePark system parkingowy',
-    description:
-      'Dzięki komputerowemu zapisowi danych o wszystkich biletach dokładnie wiadomo, ilu kierowców skorzystało z parkingu oraz jaka kwota powinna znaleźć się w kasie.',
-    img: '#',
-  },
-  {
-    to: '#',
-    name: 'Came system parkingowy',
-    description:
-      'Came stawia na rozwój nowych technologii czego dowodem są kamery odczytu tablic rejestracyjnych oraz system kamer inspekcyjnych, które mogą służyć do sprawdzania czy pod pojazdem nie są ukryte niebezpieczne lub nielegalne ładunki lub po prostu być dowodem w razie uszkodzenia samochodu podczas parkowania.',
-    img: '#',
-  },
-  {
-    to: '#',
-    name: 'Came domofony audio i video',
-    description:
-      'Dzięki odpowiedniej aplikacji, za pomocą kliku kliknięć, możesz całkowicie bezpiecznie połączyć się i kontrolować stan wszystkich pomieszczeń, obrazy z kamer, a także aktywować scenariusze, sterować różnymi urządzeniami i w prosty sposób zdalnie zarządzać swoim domem w prosty sposób za pośrednictwem smartfonu, tabletu czy komputera.',
-    img: '#',
-  },
-  {
-    to: '#',
-    name: 'Came automatyka przejścia',
-    description:
-      'Tripody, bramki mechaniczne i elektromechaniczne, systemy konktoli dostępu, automatyka do drzwi.',
-    img: '#',
+    imageId: 'bramyRolowaneKrispol',
   },
 ]
 
@@ -136,33 +99,101 @@ const Button = styled.a`
     box-shadow: ${({ theme }) => `${theme.levels[4]}`};
   }
 `
-const PricingDoc = ({ name, description }) => (
-  <div style={{ border: '1px solid' }}>
-    <div
-      style={{
-        width: '21.2rem',
-        height: '30rem',
-        backgroundColor: '#eee',
-        float: 'left',
-      }}
-    />
-    <h2>{name}</h2>
-    <p>{description}</p>
-  </div>
-)
+
+const PricingDocLink = styled.a`
+  color: initial;
+  text-decoration: none;
+  background: hsla(0, 0%, 0%, 0.02);
+  border-radius: 0.2rem;
+  box-shadow: ${({ theme }) => theme.levels[0]};
+  display: flex;
+  flex-flow: row wrap;
+`
+
+const PricingDocImage = styled(Img)`
+  width: 21.2rem;
+  height: 30rem;
+  flex: 0 0 auto;
+`
+
+const PricingDocContent = styled.div`
+  padding: ${space(2)};
+  flex: 1 1 ${space(10)};
+`
+
+const PricingDoc = ({ name, description, to, href, imageId, images }) => {
+  const linkProps = {
+    as: to ? Link : null,
+    ...(to ? { to } : { href }),
+  }
+
+  return (
+    <PricingDocLink {...linkProps}>
+      <PricingDocImage fixed={images[imageId].childImageSharp.fixed} />
+      <PricingDocContent>
+        <h2>{name}</h2>
+        <p>{description}</p>
+      </PricingDocContent>
+    </PricingDocLink>
+  )
+}
 
 const PricingPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      heroImage: file(relativePath: { eq: "hannes-egler-360942-unsplash.jpg" }) {
+      heroImage: file(
+        relativePath: { eq: "hannes-egler-360942-unsplash.jpg" }
+      ) {
         childImageSharp {
           fluid(maxWidth: 960) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
           }
         }
       }
+      cennikUslugRobson: file(relativePath: { eq: "extract-827.png" }) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      automatykaNice: file(
+        relativePath: { eq: "cennik-automatyka-do-bram-szlabany-nice.jpg" }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      bramyKrispol: file(
+        relativePath: { eq: "cennik-bram-garazowych-krispol.jpg" }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      bramyNice: file(relativePath: { eq: "cennik-bram-garazowych-nice.jpg" }) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      bramyRolowaneKrispol: file(
+        relativePath: { eq: "cennik-bram-i-krat-rolowanych-krispol.jpg" }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
     }
   `)
+
   return (
     <Root>
       <HeroWrapper>
@@ -185,7 +216,7 @@ const PricingPage = () => {
       </HeroWrapper>
       <Wrapper>
         {pricingDocs.map(pricingDoc => (
-          <PricingDoc key={pricingDoc.name} {...pricingDoc} />
+          <PricingDoc key={pricingDoc.name} {...pricingDoc} images={data} />
         ))}
       </Wrapper>
     </Root>
