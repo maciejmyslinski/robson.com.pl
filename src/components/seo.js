@@ -53,13 +53,13 @@ function SEO({ description, lang, meta, keywords, title }) {
         )
         .concat(meta)}
       title={title}
-      titleTemplate='%s | some common title ending'
+      titleTemplate='%s | ROBSON bramy Poznań'
     />
   )
 }
 
 SEO.defaultProps = {
-  lang: 'pl',
+  lang: 'pl-PL',
   meta: [],
   keywords: [],
 }

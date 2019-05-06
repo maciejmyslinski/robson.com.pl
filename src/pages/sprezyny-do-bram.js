@@ -6,6 +6,7 @@ import { Root } from 'components/root'
 import { space } from 'utils/space'
 import { fontSize } from 'utils/fontSize'
 import { lock } from 'utils/lock'
+import SEO from 'components/seo'
 
 const HeroWrapper = styled.div`
   position: relative;
@@ -81,6 +82,7 @@ const SpringsPage = () => {
 
   return (
     <Root>
+      <SEO title='Spężyny do bram NAJSZYBCIEJ' />
       <HeroWrapper>
         <Img
           style={{

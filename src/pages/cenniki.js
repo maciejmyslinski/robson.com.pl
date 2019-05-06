@@ -7,6 +7,7 @@ import { Root } from 'components/root'
 import { remToEm } from 'utils/remToEm'
 import { fontSize } from 'utils/fontSize'
 import { lock } from 'utils/lock'
+import SEO from 'components/seo'
 import niceGateDoor from 'pdf/cennik-automatyka-do-bram-szlabany-nice.pdf'
 import niceGarage from 'pdf/cennik-bram-garazowych-nice.pdf'
 import krispolHome from 'pdf/cennik-bram-garazowych-krispol.pdf'
@@ -196,6 +197,7 @@ const PricingPage = () => {
 
   return (
     <Root>
+      <SEO title='Ceny bram garażowych' />
       <HeroWrapper>
         <Img
           style={{

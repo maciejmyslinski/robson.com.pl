@@ -8,6 +8,7 @@ import { space } from 'utils/space'
 import { fontSize } from 'utils/fontSize'
 import { remToEm } from 'utils/remToEm'
 import { lock } from 'utils/lock'
+import SEO from 'components/seo'
 
 const HeroWrapper = styled.div`
   position: relative;
@@ -122,6 +123,7 @@ const IndexPage = () => {
 
   return (
     <Root>
+      <SEO title='Bramy garażowe' />
       <HeroWrapper>
         <Img
           style={{

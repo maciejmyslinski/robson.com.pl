@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Root } from 'components'
 import { fontSize } from 'utils/fontSize'
 import { space } from 'utils/space'
+import SEO from 'components/seo'
 
 const Wrapper = styled.div`
   max-width: ${space(14)};
@@ -157,6 +158,7 @@ const additionalInfo = [
 export default () => {
   return (
     <Root>
+      <SEO title='Ile kosztuje serwis bramy' />
       <Wrapper>
         <H1>Cennik usług ROBSON Robert Myśliński</H1>
         {items.map((item, i) => (
