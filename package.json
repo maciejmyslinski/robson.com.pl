@@ -38,6 +38,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop --host $(ifconfig | awk '/inet 192\\.168\\.[0-9]+\\.[0-9]+/{print $2}') --port 8000",
+    "deploy": "netlify deploy --prod",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "lint": "prettier-eslint src/**/*.js --write",
