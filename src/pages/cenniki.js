@@ -10,6 +10,7 @@ import { lock } from 'utils/lock'
 import SEO from 'components/seo'
 import niceGateDoor from 'pdf/cennik-automatyka-do-bram-szlabany-nice.pdf'
 import niceGarage from 'pdf/cennik-bram-garazowych-nice.pdf'
+import geniusAutomatic from 'pdf/cennik-genius-automatyka-do-bram.pdf'
 import krispolHome from 'pdf/cennik-bram-garazowych-krispol.pdf'
 import krispolRollingDoors from 'pdf/cennik-bram-i-krat-rolowanych-krispol.pdf'
 
@@ -34,6 +35,13 @@ const pricingDocs = [
       'Bramy garażowe i przemysłowe firmy Nice. 33 956 kombinacji dostępnych wymiarów, w tym nawet 88 wymiarów standardowych.',
     imageId: 'bramyNice',
     imageAlt: 'Okładka cennika Nice bramy garażowe',
+  },
+  {
+    href: geniusAutomatic,
+    name: 'Genius Automatic Gate',
+    description:
+      'Automatyka do bram skrzydłowych, przesuwnych, garażowych i szlabanów',
+    imageId: 'automatykaGenius',
   },
   {
     href: krispolHome,
@@ -152,6 +160,15 @@ const PricingPage = () => {
         }
       }
       cennikUslugRobson: file(relativePath: { eq: "extract-827.png" }) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      automatykaGenius: file(
+        relativePath: { eq: "cennik-genius-automatyka-do-bram.jpg" }
+      ) {
         childImageSharp {
           fixed(width: 212, height: 300) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
