@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-function SEO({ description, lang, meta, keywords, title }) {
+function SEO ({ description, lang, meta, keywords, title }) {
   const metaDescription = description || 'default description'
 
   const LocalBussinesSchemaOrg = {
@@ -62,10 +62,10 @@ function SEO({ description, lang, meta, keywords, title }) {
         .concat(
           keywords.length > 0
             ? {
-              name: 'keywords',
-              content: keywords.join(', '),
-            }
-            : []
+                name: 'keywords',
+                content: keywords.join(', '),
+              }
+            : [],
         )
         .concat(meta)}
       title={title}
