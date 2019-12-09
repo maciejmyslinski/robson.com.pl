@@ -8,26 +8,12 @@ import { remToEm } from 'utils/remToEm'
 import { fontSize } from 'utils/fontSize'
 import { lock } from 'utils/lock'
 import SEO from 'components/seo'
-import niceGateDoor from 'pdf/cennik-automatyka-do-bram-szlabany-nice.pdf'
 import niceGarage from 'pdf/cennik-bram-garazowych-nice.pdf'
 import geniusAutomatic from 'pdf/cennik-genius-automatyka-do-bram.pdf'
 import krispolHome from 'pdf/cennik-bram-garazowych-krispol.pdf'
 import krispolRollingDoors from 'pdf/cennik-bram-i-krat-rolowanych-krispol.pdf'
 
 const pricingDocs = [
-  {
-    to: '/cennik-uslug-robson',
-    name: 'Cennik usług ROBSON Robert Myśliński',
-    description: 'Zapewniamy również miłą obsługę!',
-    imageId: 'cennikUslugRobson',
-  },
-  {
-    href: niceGateDoor,
-    name: 'Nice GATE & DOOR',
-    description:
-      'Systemy automatyzacji, sterowania i kontroli bram wjazdowych oraz drzwi garażowych. Szlabany i stystemy parkingowe, systemy kontroli ruchu pieszych, systemy kontroli dostępu, wideodomofony.',
-    imageId: 'automatykaNice',
-  },
   {
     href: niceGarage,
     name: 'Nice bramy dla domu i przemysłu',
@@ -130,15 +116,25 @@ const PricingDocContent = styled.div`
   flex: 1 1 ${space(10)};
 `
 
-const PricingDoc = ({ name, description, to, href, imageId, images }) => {
+const PricingDoc = ({
+  name,
+  description,
+  to,
+  href,
+  imageId,
+  images,
+  coverImage,
+}) => {
   const linkProps = {
     as: to ? Link : null,
     ...(to ? { to } : { href }),
   }
 
+  const image = imageId ? images[imageId] : coverImage
+
   return (
     <PricingDocLink {...linkProps}>
-      <PricingDocImage fixed={images[imageId].childImageSharp.fixed} />
+      <PricingDocImage fixed={image.childImageSharp.fixed} />
       <PricingDocContent>
         <h2>{name}</h2>
         <p>{description}</p>
@@ -175,15 +171,6 @@ const PricingPage = () => {
           }
         }
       }
-      automatykaNice: file(
-        relativePath: { eq: "cennik-automatyka-do-bram-szlabany-nice.jpg" }
-      ) {
-        childImageSharp {
-          fixed(width: 212, height: 300) {
-            ...GatsbyImageSharpFixed_withWebp_tracedSVG
-          }
-        }
-      }
       bramyKrispol: file(
         relativePath: { eq: "cennik-bram-garazowych-krispol.jpg" }
       ) {
@@ -209,8 +196,34 @@ const PricingPage = () => {
           }
         }
       }
+      allStrapiPricelist {
+        nodes {
+          id
+          name
+          description
+          link
+          coverImage {
+            childImageSharp {
+              fixed(width: 212, height: 300) {
+                ...GatsbyImageSharpFixed_withWebp_tracedSVG
+              }
+            }
+          }
+          file {
+            publicURL
+          }
+        }
+      }
     }
   `)
+
+  const newData = data.allStrapiPricelist.nodes.map(
+    ({ file, link, ...priceList }) => ({
+      ...priceList,
+      to: link,
+      href: file && file.publicURL,
+    }),
+  )
 
   return (
     <Root>
@@ -234,6 +247,15 @@ const PricingPage = () => {
         </div>
       </HeroWrapper>
       <Wrapper>
+        {newData.map(pricingDoc => {
+          return (
+            <PricingDoc
+              key={pricingDoc.id}
+              {...pricingDoc}
+              coverImage={pricingDoc.coverImage}
+            />
+          )
+        })}
         {pricingDocs.map(pricingDoc => (
           <PricingDoc key={pricingDoc.name} {...pricingDoc} images={data} />
         ))}

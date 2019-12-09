@@ -34,5 +34,12 @@ module.exports = {
         trackingId: 'UA-57718131-1',
       },
     },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://localhost:1337`,
+        contentTypes: ['pricelist'],
+      },
+    },
   ],
 }
