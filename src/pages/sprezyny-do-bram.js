@@ -108,7 +108,7 @@ const SpringsPage = () => {
           są one znacznie bardziej wytrzymałe.
         </p>
         <p>
-          <b>Czym jest kulowanie?</b>
+          <b>Czym jest kulowanie?</b>{' '}
           Najprościej mówiąc, kulowanie polega na bombardowaniu materiału
           tysiącami maleńkich drobinek. Powierzchnia tak obrobionego kawałeka
           metalu zmienia swoją strukturę i geometrię. Powstaje w niej cała
@@ -141,7 +141,7 @@ const SpringsPage = () => {
         <p>
           <b>
             W obrębie Poznania jest możliwość wymiany sprężyn również w weekend.
-          </b>
+          </b>{' '}
           Nie zwlekaj!
         </p>
         <h2>Przystępne ceny</h2>
