@@ -156,7 +156,7 @@ export const Root = ({ children }) => {
         <nav>
           <Ul>
             <li>
-              <NavLink to='/serwis'>Serwis</NavLink>
+              <NavLink to='/serwis'>Montaż, serwis</NavLink>
             </li>
             <li>
               <NavLink to='/sprezyny-do-bram'>Sprężyny</NavLink>

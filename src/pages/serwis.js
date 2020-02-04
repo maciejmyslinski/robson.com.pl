@@ -82,7 +82,7 @@ const ServicePage = () => {
 
   return (
     <Root>
-      <SEO title='Serwis bram 24h' />
+      <SEO title='Montaż i serwis bram 24h' />
       <HeroWrapper>
         <Img
           style={{
@@ -96,7 +96,7 @@ const ServicePage = () => {
           }}
           fluid={data.heroImage.childImageSharp.fluid}
         />
-        <H1>Serwis bram, z którego jesteś zawsze zadowolony</H1>
+        <H1>Montaż i serwis bram, z którego jesteś zawsze zadowolony</H1>
         <div style={{ gridArea: 'cta' }}>
           <Button href='tel:+48602338508'>602 338 508</Button>
         </div>
