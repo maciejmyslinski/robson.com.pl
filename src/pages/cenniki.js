@@ -8,11 +8,22 @@ import { remToEm } from 'utils/remToEm'
 import { fontSize } from 'utils/fontSize'
 import { lock } from 'utils/lock'
 import SEO from 'components/seo'
-import niceGateDoor from 'pdf/cennik-automatyka-do-bram-szlabany-nice.pdf'
+import niceGateDoor from 'pdf/Cennik_Nice_2020_www.pdf'
 import niceGarage from 'pdf/cennik-bram-garazowych-nice.pdf'
-import geniusAutomatic from 'pdf/cennik-genius-automatyka-do-bram.pdf'
+import geniusAutomatic from 'pdf/Katalog GENIUS - 2020.pdf'
 import krispolHome from 'pdf/cennik-bram-garazowych-krispol.pdf'
-import krispolRollingDoors from 'pdf/cennik-bram-i-krat-rolowanych-krispol.pdf'
+import faacKits from 'pdf/Katalog FAAC - ZESTAWY STARTOWE - 2020.pdf'
+import faacBars from 'pdf/Katalog FAAC - SZLABANY - 2020.pdf'
+import faacHingedGates from 'pdf/Katalog FAAC - NAPĘDY DO BRAM UCHYLNYCH - 2020.pdf'
+import faacSlidingGates from 'pdf/Katalog FAAC - NAPĘDY DO BRAM PRZESUWNYCH - 2020.pdf'
+import faacGarageDoors from 'pdf/Katalog FAAC - NAPĘDY DO BRAM GARAŻOWYCH - 2020.pdf'
+import faacControlPanels from 'pdf/Katalog FAAC - CENTRALE STERUJĄCE - 2020.pdf'
+import faacAccessories from 'pdf/Katalog FAAC - AKCESORIA - 2020.pdf'
+import krispolEntryDoors from 'pdf/KRISPOL_CENNIK_DRZWI_WEJSCIOWE_2020_PL.pdf'
+import krispolGarageDoors from 'pdf/KRISPOL_CENNIK_BRAM_GARAZOWYCH_2020_PL.pdf'
+import krispolRollingDoors from 'pdf/KRISPOL_CENNIK_BRAMY_I_KRATY_ROLOWANE_2020_PL.pdf'
+import krispolIndustrialDoors from 'pdf/KRISPOL_CENNIK_SEGMENTOWYCH_BRAM_PRZEMYSŁOWYCH_2020_PL.pdf'
+import kingGates from 'pdf/Cennik_KingGates_www.pdf'
 
 const pricingDocs = [
   {
@@ -38,7 +49,7 @@ const pricingDocs = [
   },
   {
     href: geniusAutomatic,
-    name: 'Genius Automatic Gate',
+    name: 'Automatyka Genius',
     description:
       'Automatyka do bram skrzydłowych, przesuwnych, garażowych i szlabanów',
     imageId: 'automatykaGenius',
@@ -55,7 +66,73 @@ const pricingDocs = [
     name: 'Krispol bramy i kraty rolowane',
     description:
       'Główną zaletą bram rolowanych jest ich konstrukcja. Pancerz bramy zwijany jest na wał umieszczony nad otworem, dzięki temu przestrzeń pod sufitem hali pozostaje wolna. To ważne, gdy kluczowa jest wysokość pomieszczeń.',
-    imageId: 'bramyRolowaneKrispol',
+    imageId: 'krispolRollingDoors',
+  },
+  {
+    href: faacKits,
+    name: 'FAAC zestawy startowe',
+    description: '',
+    imageId: 'faacKits',
+  },
+  {
+    href: faacBars,
+    name: 'FAAC szlabany automatyczne',
+    description: '',
+    imageId: 'faacBars',
+  },
+  {
+    href: faacHingedGates,
+    name: 'FAAC napędy do bram uchylnych',
+    description: '',
+    imageId: 'faacHingedGates',
+  },
+  {
+    href: faacSlidingGates,
+    name: 'FAAC napędy do bram przesuwnych',
+    description: '',
+    imageId: 'faacSlidingGates',
+  },
+  {
+    href: faacGarageDoors,
+    name: 'FAAC napędy do bram garażowych',
+    description: '',
+    imageId: 'faacGarageDoors',
+  },
+  {
+    href: faacControlPanels,
+    name: 'FAAC centrale sterujące',
+    description: '',
+    imageId: 'faacControlPanels',
+  },
+  {
+    href: faacAccessories,
+    name: 'FAAC akcesoria',
+    description: '',
+    imageId: 'faacAccessories',
+  },
+  {
+    href: krispolEntryDoors,
+    name: 'Krispol drzwi wejściowe',
+    description: '',
+    imageId: 'krispolEntryDoors',
+  },
+  {
+    href: krispolGarageDoors,
+    name: 'Krispol bramy garażowe',
+    description: '',
+    imageId: 'krispolGarageDoors',
+  },
+  {
+    href: krispolIndustrialDoors,
+    name: 'Krispol bramy segmentowe przemysłowe',
+    description: '',
+    imageId: 'krispolIndustrialDoors',
+  },
+  {
+    href: kingGates,
+    name: 'King Gates',
+    description: '',
+    imageId: 'kingGates',
   },
 ]
 
@@ -167,7 +244,7 @@ const PricingPage = () => {
         }
       }
       automatykaGenius: file(
-        relativePath: { eq: "cennik-genius-automatyka-do-bram.jpg" }
+        relativePath: { eq: "Katalog GENIUS - 2020.jpg" }
       ) {
         childImageSharp {
           fixed(width: 212, height: 300) {
@@ -175,9 +252,7 @@ const PricingPage = () => {
           }
         }
       }
-      automatykaNice: file(
-        relativePath: { eq: "cennik-automatyka-do-bram-szlabany-nice.jpg" }
-      ) {
+      automatykaNice: file(relativePath: { eq: "Cennik_Nice_2020_www.jpg" }) {
         childImageSharp {
           fixed(width: 212, height: 300) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
@@ -200,9 +275,116 @@ const PricingPage = () => {
           }
         }
       }
-      bramyRolowaneKrispol: file(
-        relativePath: { eq: "cennik-bram-i-krat-rolowanych-krispol.jpg" }
+      krispolRollingDoors: file(
+        relativePath: {
+          eq: "KRISPOL_CENNIK_BRAMY_I_KRATY_ROLOWANE_2020_PL.jpg"
+        }
       ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      faacKits: file(
+        relativePath: { eq: "Katalog FAAC - ZESTAWY STARTOWE - 2020.jpg" }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      faacBars: file(
+        relativePath: { eq: "Katalog FAAC - SZLABANY - 2020.jpg" }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      faacHingedGates: file(
+        relativePath: {
+          eq: "Katalog FAAC - NAPĘDY DO BRAM UCHYLNYCH - 2020.jpg"
+        }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      faacSlidingGates: file(
+        relativePath: {
+          eq: "Katalog FAAC - NAPĘDY DO BRAM PRZESUWNYCH - 2020.jpg"
+        }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      faacGarageDoors: file(
+        relativePath: {
+          eq: "Katalog FAAC - NAPĘDY DO BRAM GARAŻOWYCH - 2020.jpg"
+        }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      faacControlPanels: file(
+        relativePath: { eq: "Katalog FAAC - CENTRALE STERUJĄCE - 2020.jpg" }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      faacAccessories: file(
+        relativePath: { eq: "Katalog FAAC - AKCESORIA - 2020.jpg" }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      krispolEntryDoors: file(
+        relativePath: { eq: "KRISPOL_CENNIK_DRZWI_WEJSCIOWE_2020_PL.jpg" }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      krispolGarageDoors: file(
+        relativePath: { eq: "KRISPOL_CENNIK_BRAM_GARAZOWYCH_2020_PL.jpg" }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      krispolIndustrialDoors: file(
+        relativePath: {
+          eq: "KRISPOL_CENNIK_SEGMENTOWYCH_BRAM_PRZEMYSŁOWYCH_2020_PL.jpg"
+        }
+      ) {
+        childImageSharp {
+          fixed(width: 212, height: 300) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      kingGates: file(relativePath: { eq: "Cennik_KingGates_www.jpg" }) {
         childImageSharp {
           fixed(width: 212, height: 300) {
             ...GatsbyImageSharpFixed_withWebp_tracedSVG
