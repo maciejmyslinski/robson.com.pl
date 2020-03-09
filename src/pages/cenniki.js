@@ -14,10 +14,10 @@ import geniusAutomatic from 'pdf/Katalog GENIUS - 2020.pdf'
 import krispolHome from 'pdf/cennik-bram-garazowych-krispol.pdf'
 import faacKits from 'pdf/Katalog FAAC - ZESTAWY STARTOWE - 2020.pdf'
 import faacBars from 'pdf/Katalog FAAC - SZLABANY - 2020.pdf'
-import faacHingedGates from 'pdf/Katalog FAAC - NAPĘDY DO BRAM UCHYLNYCH - 2020.pdf'
-import faacSlidingGates from 'pdf/Katalog FAAC - NAPĘDY DO BRAM PRZESUWNYCH - 2020.pdf'
-import faacGarageDoors from 'pdf/Katalog FAAC - NAPĘDY DO BRAM GARAŻOWYCH - 2020.pdf'
-import faacControlPanels from 'pdf/Katalog FAAC - CENTRALE STERUJĄCE - 2020.pdf'
+import faacHingedGates from 'pdf/Katalog FAAC - NAPEDY DO BRAM UCHYLNYCH - 2020.pdf'
+import faacSlidingGates from 'pdf/Katalog FAAC - NAPEDY DO BRAM PRZESUWNYCH - 2020.pdf'
+import faacGarageDoors from 'pdf/Katalog FAAC - NAPEDY DO BRAM GARAZOWYCH - 2020.pdf'
+import faacControlPanels from 'pdf/Katalog FAAC - CENTRALE STERUJACE - 2020.pdf'
 import faacAccessories from 'pdf/Katalog FAAC - AKCESORIA - 2020.pdf'
 import krispolEntryDoors from 'pdf/KRISPOL_CENNIK_DRZWI_WEJSCIOWE_2020_PL.pdf'
 import krispolGarageDoors from 'pdf/KRISPOL_CENNIK_BRAM_GARAZOWYCH_2020_PL.pdf'
@@ -306,7 +306,7 @@ const PricingPage = () => {
       }
       faacHingedGates: file(
         relativePath: {
-          eq: "Katalog FAAC - NAPĘDY DO BRAM UCHYLNYCH - 2020.jpg"
+          eq: "Katalog FAAC - NAPEDY DO BRAM UCHYLNYCH - 2020.jpg"
         }
       ) {
         childImageSharp {
@@ -317,7 +317,7 @@ const PricingPage = () => {
       }
       faacSlidingGates: file(
         relativePath: {
-          eq: "Katalog FAAC - NAPĘDY DO BRAM PRZESUWNYCH - 2020.jpg"
+          eq: "Katalog FAAC - NAPEDY DO BRAM PRZESUWNYCH - 2020.jpg"
         }
       ) {
         childImageSharp {
@@ -328,7 +328,7 @@ const PricingPage = () => {
       }
       faacGarageDoors: file(
         relativePath: {
-          eq: "Katalog FAAC - NAPĘDY DO BRAM GARAŻOWYCH - 2020.jpg"
+          eq: "Katalog FAAC - NAPEDY DO BRAM GARAZOWYCH - 2020.jpg"
         }
       ) {
         childImageSharp {
@@ -338,7 +338,7 @@ const PricingPage = () => {
         }
       }
       faacControlPanels: file(
-        relativePath: { eq: "Katalog FAAC - CENTRALE STERUJĄCE - 2020.jpg" }
+        relativePath: { eq: "Katalog FAAC - CENTRALE STERUJACE - 2020.jpg" }
       ) {
         childImageSharp {
           fixed(width: 212, height: 300) {
